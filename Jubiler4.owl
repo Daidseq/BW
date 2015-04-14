@@ -1,0 +1,982 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY przyklad_zlecenia "http://km.pg.gda.pl/kmg/ontologies/2015/3/przyklad_zlecenia#" >
+]>
+
+
+<rdf:RDF xmlns="http://kio.eti.pg.gda.pl/kmg/ontologies/2015/3/przyklad_jubiler#"
+     xml:base="http://kio.eti.pg.gda.pl/kmg/ontologies/2015/3/przyklad_jubiler"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:przyklad_zlecenia="http://km.pg.gda.pl/kmg/ontologies/2015/3/przyklad_zlecenia#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://km.pg.gda.pl/kmg/ontologies/2015/3/przyklad_zlecenia">
+        <owl:imports rdf:resource="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://km.pg.gda.pl/kmg/ontologies/2015/3/przyklad_zlecenia#etapWykonany -->
+
+    <owl:ObjectProperty rdf:about="&przyklad_zlecenia;etapWykonany">
+        <rdfs:comment xml:lang="pl">Łączy obiekty reprezentujące procesy zamówień ze zdarzeniami będącymi ich częściami składowymi.</rdfs:comment>
+        <rdfs:range rdf:resource="&przyklad_zlecenia;CzescProcesuZamowienia"/>
+        <rdfs:domain rdf:resource="&przyklad_zlecenia;Zamowienie"/>
+        <rdfs:subPropertyOf rdf:resource="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#part"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://km.pg.gda.pl/kmg/ontologies/2015/3/przyklad_zlecenia#maBrzmienie -->
+
+    <owl:ObjectProperty rdf:about="&przyklad_zlecenia;maBrzmienie">
+        <rdfs:range rdf:resource="&przyklad_zlecenia;FragmentPrzestrzeniFonetycznej"/>
+        <rdfs:domain rdf:resource="&przyklad_zlecenia;WlasnoscFonetyczna"/>
+        <rdfs:subPropertyOf rdf:resource="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#q-location"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://km.pg.gda.pl/kmg/ontologies/2015/3/przyklad_zlecenia#maImie -->
+
+    <owl:ObjectProperty rdf:about="&przyklad_zlecenia;maImie">
+        <rdfs:range rdf:resource="&przyklad_zlecenia;Imie"/>
+        <rdfs:domain rdf:resource="&przyklad_zlecenia;Osoba"/>
+        <rdfs:subPropertyOf rdf:resource="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#hasQuality"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://km.pg.gda.pl/kmg/ontologies/2015/3/przyklad_zlecenia#maNapis -->
+
+    <owl:ObjectProperty rdf:about="&przyklad_zlecenia;maNapis">
+        <rdfs:range rdf:resource="&przyklad_zlecenia;Napis"/>
+        <rdfs:domain rdf:resource="&przyklad_zlecenia;WlasnoscTekstowa"/>
+        <rdfs:subPropertyOf rdf:resource="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#hasQuale"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://km.pg.gda.pl/kmg/ontologies/2015/3/przyklad_zlecenia#maNazwe -->
+
+    <owl:ObjectProperty rdf:about="&przyklad_zlecenia;maNazwe">
+        <rdfs:range rdf:resource="&przyklad_zlecenia;Nazwa"/>
+        <rdfs:domain rdf:resource="&przyklad_zlecenia;Produkt"/>
+        <rdfs:subPropertyOf rdf:resource="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#hasQuality"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://km.pg.gda.pl/kmg/ontologies/2015/3/przyklad_zlecenia#maNazwisko -->
+
+    <owl:ObjectProperty rdf:about="&przyklad_zlecenia;maNazwisko">
+        <rdfs:range rdf:resource="&przyklad_zlecenia;Nazwisko"/>
+        <rdfs:domain rdf:resource="&przyklad_zlecenia;Osoba"/>
+        <rdfs:subPropertyOf rdf:resource="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#hasQuality"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://km.pg.gda.pl/kmg/ontologies/2015/3/przyklad_zlecenia#podlega -->
+
+    <owl:ObjectProperty rdf:about="&przyklad_zlecenia;podlega">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:comment xml:lang="pl">Ta rola nie jest odpowiednikiem związku o tej samej nazwie z ERD. Odpowiednikiem tym jest rola dziedzicząca podlegaBezpośrednio.
+Rola podlega ma szersze znaczenie: łączy pracownika ze wszystkimi jego przełożonymi, a więc także z przełożonymi jego przełożonych. Jest to osiągnięte poprzez nadanie roli cechy tranzytywności, czyli przechodniości.
+Ze względu na to rola nie może mieć liczności 0..n do 0..1.
+Rola ta nie oddaje istoty problemu. Podległość służbowa jest przecież wynikiem zajmowanego stanowiska. Nie mamy też możliwości wyrazić np. zmian w czasie. Dlatego dziedziczymy ją od roli partlyCompresent, która z kolei dziedziczy od mediatedRelation.
+</rdfs:comment>
+        <rdfs:range rdf:resource="&przyklad_zlecenia;Pracownik"/>
+        <rdfs:domain rdf:resource="&przyklad_zlecenia;Pracownik"/>
+        <rdfs:subPropertyOf rdf:resource="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#partlyCompresent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://km.pg.gda.pl/kmg/ontologies/2015/3/przyklad_zlecenia#podlegaBezposrednio -->
+
+    <owl:ObjectProperty rdf:about="&przyklad_zlecenia;podlegaBezposrednio">
+        <rdfs:comment xml:lang="pl">Ta rola jest odpowiednikiem związku podlega z ERD.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&przyklad_zlecenia;podlega"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://km.pg.gda.pl/kmg/ontologies/2015/3/przyklad_zlecenia#przekazal -->
+
+    <owl:ObjectProperty rdf:about="&przyklad_zlecenia;przekazal">
+        <rdfs:comment xml:lang="pl">Łączy zdarzenie będące częścią procesu zamówienia z pracownikiem, który w tym zdarzeniu uczestniczył.</rdfs:comment>
+        <rdfs:domain rdf:resource="&przyklad_zlecenia;OdbiorZamowienia"/>
+        <rdfs:range rdf:resource="&przyklad_zlecenia;Pracownik"/>
+        <rdfs:subPropertyOf rdf:resource="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#participant"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://km.pg.gda.pl/kmg/ontologies/2015/3/przyklad_zlecenia#przyjal -->
+
+    <owl:ObjectProperty rdf:about="&przyklad_zlecenia;przyjal">
+        <rdfs:comment xml:lang="pl">Łączy zdarzenie będące częścią procesu zamówienia z pracownikiem, który w tym zdarzeniu uczestniczył.</rdfs:comment>
+        <rdfs:range rdf:resource="&przyklad_zlecenia;Pracownik"/>
+        <rdfs:subPropertyOf rdf:resource="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#participant"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&przyklad_zlecenia;OplacenieZamowienia"/>
+                    <rdf:Description rdf:about="&przyklad_zlecenia;ZlozenieZamowienia"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://km.pg.gda.pl/kmg/ontologies/2015/3/przyklad_zlecenia#wZamowieniu -->
+
+    <owl:ObjectProperty rdf:about="&przyklad_zlecenia;wZamowieniu">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&przyklad_zlecenia;Produkt"/>
+        <rdfs:range rdf:resource="&przyklad_zlecenia;Zamowienie"/>
+        <rdfs:subPropertyOf rdf:resource="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#participantIn"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://km.pg.gda.pl/kmg/ontologies/2015/3/przyklad_zlecenia#zlozyl -->
+
+    <owl:ObjectProperty rdf:about="&przyklad_zlecenia;zlozyl">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment xml:lang="pl">Łączy zdarzenie będące częścią procesu zamówienia z pracownikiem, który w tym zdarzeniu uczestniczył.</rdfs:comment>
+        <rdfs:range rdf:resource="&przyklad_zlecenia;Klient"/>
+        <rdfs:domain rdf:resource="&przyklad_zlecenia;Zamowienie"/>
+        <rdfs:subPropertyOf rdf:resource="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#participant"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://km.pg.gda.pl/kmg/ontologies/2015/3/przyklad_zlecenia#zrealizowal -->
+
+    <owl:ObjectProperty rdf:about="&przyklad_zlecenia;zrealizowal">
+        <rdfs:comment xml:lang="pl">Łączy zdarzenie będące częścią procesu zamówienia z pracownikiem, który w tym zdarzeniu uczestniczył.</rdfs:comment>
+        <rdfs:range rdf:resource="&przyklad_zlecenia;Pracownik"/>
+        <rdfs:domain rdf:resource="&przyklad_zlecenia;RealizacjaZamowienia"/>
+        <rdfs:subPropertyOf rdf:resource="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#participant"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://km.pg.gda.pl/kmg/ontologies/2015/3/przyklad_zlecenia#dataOdbioru -->
+
+    <owl:DatatypeProperty rdf:about="&przyklad_zlecenia;dataOdbioru">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&przyklad_zlecenia;OdbiorZamowienia"/>
+        <rdfs:subPropertyOf rdf:resource="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#mediatedAttribute"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://km.pg.gda.pl/kmg/ontologies/2015/3/przyklad_zlecenia#dataOplaty -->
+
+    <owl:DatatypeProperty rdf:about="&przyklad_zlecenia;dataOplaty">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&przyklad_zlecenia;OplacenieZamowienia"/>
+        <rdfs:subPropertyOf rdf:resource="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#mediatedAttribute"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://km.pg.gda.pl/kmg/ontologies/2015/3/przyklad_zlecenia#dataRealizacji -->
+
+    <owl:DatatypeProperty rdf:about="&przyklad_zlecenia;dataRealizacji">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&przyklad_zlecenia;RealizacjaZamowienia"/>
+        <rdfs:subPropertyOf rdf:resource="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#mediatedAttribute"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://km.pg.gda.pl/kmg/ontologies/2015/3/przyklad_zlecenia#dataRejestracji -->
+
+    <owl:DatatypeProperty rdf:about="&przyklad_zlecenia;dataRejestracji">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&przyklad_zlecenia;Klient"/>
+        <rdfs:subPropertyOf rdf:resource="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#mediatedAttribute"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://km.pg.gda.pl/kmg/ontologies/2015/3/przyklad_zlecenia#dataZlozenia -->
+
+    <owl:DatatypeProperty rdf:about="&przyklad_zlecenia;dataZlozenia">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&przyklad_zlecenia;ZlozenieZamowienia"/>
+        <rdfs:subPropertyOf rdf:resource="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#mediatedAttribute"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://km.pg.gda.pl/kmg/ontologies/2015/3/przyklad_zlecenia#napis -->
+
+    <owl:DatatypeProperty rdf:about="&przyklad_zlecenia;napis">
+        <rdfs:domain rdf:resource="&przyklad_zlecenia;Napis"/>
+        <rdfs:subPropertyOf rdf:resource="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#immediateAttribute"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://km.pg.gda.pl/kmg/ontologies/2015/3/przyklad_zlecenia#nrEwidencyjny -->
+
+    <owl:DatatypeProperty rdf:about="&przyklad_zlecenia;nrEwidencyjny">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&przyklad_zlecenia;Produkt"/>
+        <rdfs:subPropertyOf rdf:resource="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#mediatedAttribute"/>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://km.pg.gda.pl/kmg/ontologies/2015/3/przyklad_zlecenia#nrTelefonu -->
+
+    <owl:DatatypeProperty rdf:about="&przyklad_zlecenia;nrTelefonu">
+        <rdfs:domain rdf:resource="&przyklad_zlecenia;Osoba"/>
+        <rdfs:subPropertyOf rdf:resource="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#mediatedAttribute"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://km.pg.gda.pl/kmg/ontologies/2015/3/przyklad_zlecenia#nrZamowienia -->
+
+    <owl:DatatypeProperty rdf:about="&przyklad_zlecenia;nrZamowienia">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&przyklad_zlecenia;Zamowienie"/>
+        <rdfs:subPropertyOf rdf:resource="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#mediatedAttribute"/>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://km.pg.gda.pl/kmg/ontologies/2015/3/przyklad_zlecenia#termin -->
+
+    <owl:DatatypeProperty rdf:about="&przyklad_zlecenia;termin">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&przyklad_zlecenia;Zamowienie"/>
+        <rdfs:subPropertyOf rdf:resource="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#mediatedAttribute"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://km.pg.gda.pl/kmg/ontologies/2015/3/przyklad_zlecenia#wartosc -->
+
+    <owl:DatatypeProperty rdf:about="&przyklad_zlecenia;wartosc">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#mediatedAttribute"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&przyklad_zlecenia;Produkt"/>
+                    <rdf:Description rdf:about="&przyklad_zlecenia;Zamowienie"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://km.pg.gda.pl/kmg/ontologies/2015/3/przyklad_zlecenia#zapis -->
+
+    <owl:DatatypeProperty rdf:about="&przyklad_zlecenia;zapis">
+        <rdfs:comment xml:lang="pl">Atrybut ten przypisuje fragmentowi przestrzeni fonetycznej wartości tekstowe, które mają za zadanie reprezentować słowa w ich brzmieniu fonetycznym. Dziedziczą od niego takie atrybuty, jak zapisFonetyczny, zapisLacinski, zapisArabski. Ale właściwie powinno być ich więcej, gdyż sposób kodowania głosek przez litery jest charakterystyczny dla każdej z kultur. Na przykład, Anglicy w celu zachowania fonetycznego brzmienia nazwiska Waloszek powinni (chyba) użyć zapisu Valhosheck. Warto więc może także wyodrębnić zapisAngielski, zapisFrancuski itp.
+Warto także zastanowić się nad dodaniem atrybutu zapisBinarny typu anyURI, który wskazywałby plik mp3 z nagranym brzmieniem danego słowa.
+</rdfs:comment>
+        <rdfs:domain rdf:resource="&przyklad_zlecenia;FragmentPrzestrzeniFonetycznej"/>
+        <rdfs:subPropertyOf rdf:resource="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#immediateAttribute"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://km.pg.gda.pl/kmg/ontologies/2015/3/przyklad_zlecenia#zapisArabski -->
+
+    <owl:DatatypeProperty rdf:about="&przyklad_zlecenia;zapisArabski">
+        <rdfs:subPropertyOf rdf:resource="&przyklad_zlecenia;zapis"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://km.pg.gda.pl/kmg/ontologies/2015/3/przyklad_zlecenia#zapisCyrylica -->
+
+    <owl:DatatypeProperty rdf:about="&przyklad_zlecenia;zapisCyrylica">
+        <rdfs:subPropertyOf rdf:resource="&przyklad_zlecenia;zapis"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://km.pg.gda.pl/kmg/ontologies/2015/3/przyklad_zlecenia#zapisFonetyczny -->
+
+    <owl:DatatypeProperty rdf:about="&przyklad_zlecenia;zapisFonetyczny">
+        <rdfs:subPropertyOf rdf:resource="&przyklad_zlecenia;zapis"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://km.pg.gda.pl/kmg/ontologies/2015/3/przyklad_zlecenia#zapisLacinski -->
+
+    <owl:DatatypeProperty rdf:about="&przyklad_zlecenia;zapisLacinski">
+        <rdfs:subPropertyOf rdf:resource="&przyklad_zlecenia;zapis"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://km.pg.gda.pl/kmg/ontologies/2015/3/przyklad_zlecenia#zapisMandarynski -->
+
+    <owl:DatatypeProperty rdf:about="&przyklad_zlecenia;zapisMandarynski">
+        <rdfs:subPropertyOf rdf:resource="&przyklad_zlecenia;zapis"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://km.pg.gda.pl/kmg/ontologies/2015/3/przyklad_zlecenia#CzescProcesuZamowienia -->
+
+    <owl:Class rdf:about="&przyklad_zlecenia;CzescProcesuZamowienia">
+        <rdfs:subClassOf rdf:resource="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#Event"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty>
+                    <rdf:Description>
+                        <owl:inverseOf rdf:resource="&przyklad_zlecenia;etapWykonany"/>
+                    </rdf:Description>
+                </owl:onProperty>
+                <owl:onClass rdf:resource="&przyklad_zlecenia;Zamowienie"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="pl">Klasa ma na celu wyodrębnienie klas zdarzeń, które są częściami składowymi procesu zamówienia. Jej istnienie ułatwia zdefiniowanie roli etapWykonany.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://km.pg.gda.pl/kmg/ontologies/2015/3/przyklad_zlecenia#FragmentPrzestrzeniFonetycznej -->
+
+    <owl:Class rdf:about="&przyklad_zlecenia;FragmentPrzestrzeniFonetycznej">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&przyklad_zlecenia;przestrzenFonetyczna"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#partOf"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:oneOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="&przyklad_zlecenia;przestrzenFonetyczna"/>
+                                </owl:oneOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#Region"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&przyklad_zlecenia;zapis"/>
+                <owl:someValuesFrom rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="pl">Klasa FragmentPrzestrzeniFonetycznej gromadzi obiekty będące regionami przestrzeni fonetycznej. Dostarczają one wartości dla własności (Quality) typu WlasnoscFonetyczna. Ten rodzaj wartości wymaga wyodrębnienia, ponieważ związane z nim dane będziemy łączyć z danymi innych systemów działających w przestrzeni globalnej za pomocą specyficznego algorytmu przekształcania, innego niż ten, który będzie przekształcał zwykłe napisy (patrz opis klasy WlasnoscTekstowa). Algorytm ten powinien poprawnie przekazywać brzmienie słów, a nie ich znaczenie (np. nazwiska Król nie powinniśmy przekształcać na King). Dlatego wartości tekstowe, które są przypisane fragmentom przestrzeni fonetycznej za pomocą atrybutów zapis, mają za zadanie reprezentować słowa w ich brzmieniu fonetycznym (warto zastanowić się nad dodaniem atrybutu typu anyURI, który wskazywałby plik mp3 z nagranym brzmieniem).
+Atrybut zapisLacinski jest kluczem dla obiektów tego typu.
+Dany fragment przestrzeni fonetycznej jest regionem, gdyż ludzki słuch toleruje dość duże różnice w brzmieniu słów, przy wciąż zachowanym stopniu zrozumiałości wypowiedzi. Na dobrą sprawę każdy człowiek wypowiada dane słowo inaczej. Dlatego brzmienie jednego słowa nie jest niepodzielnym quale, lecz właśnie regionem.
+Sama klasa FragmentPrzestrzeniFonetycznej, rozumiana jako zbiór obiektów, ma swojego przedstawiciela w postaci obiektu przestrzenFonetyczna typu QualitySpace. Jest to rozumiane w ten sposób, że każdy obiekt klasy FragmentPrzestrzeniFonetycznej musi także być połączony rolą partOf z tym przedstawicielem. Mówi o tym aksjomat ({przestrzenFonetyczna}) or (partOf some ({przestrzenFonetyczna})).
+</rdfs:comment>
+        <owl:hasKey rdf:parseType="Collection">
+            <rdf:Description rdf:about="&przyklad_zlecenia;zapisLacinski"/>
+        </owl:hasKey>
+    </owl:Class>
+    
+
+
+    <!-- http://km.pg.gda.pl/kmg/ontologies/2015/3/przyklad_zlecenia#FragmentPrzestrzeniNapisow -->
+
+    <owl:Class rdf:about="&przyklad_zlecenia;FragmentPrzestrzeniNapisow">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&przyklad_zlecenia;przestrzenNapisow"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#partOf"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:oneOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="&przyklad_zlecenia;przestrzenNapisow"/>
+                                </owl:oneOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#Region"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&przyklad_zlecenia;napis"/>
+                <owl:someValuesFrom rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="pl">Dowolny zbiór napisów. Gromadzi wszystkie regiony, które są częścią przestrzeni napisów (w tym całą przestrzeń napisów oraz wszystkie pojedyncze napisy). Przestrzeń ta ma swojego przedstawiciela w postaci obiektu przestrzenNapisow typu QualitySpace. Jest to rozumiane w ten sposób, że każdy obiekt klasy FragmentPrzestrzeniNapisow musi także być połączony rolą partOf z tym przedstawicielem. Mówi o tym aksjomat równoważności tej klasy z:
+({przestrzenNapisow}) or (partOf some ({przestrzenNapisow}))
+</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://km.pg.gda.pl/kmg/ontologies/2015/3/przyklad_zlecenia#Imie -->
+
+    <owl:Class rdf:about="&przyklad_zlecenia;Imie">
+        <rdfs:subClassOf rdf:resource="&przyklad_zlecenia;WlasnoscFonetyczna"/>
+        <rdfs:comment xml:lang="pl">Klasa dziedzicząca od klasy WlasnoscFonetyczna, gromadząca imiona osób.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://km.pg.gda.pl/kmg/ontologies/2015/3/przyklad_zlecenia#Klient -->
+
+    <owl:Class rdf:about="&przyklad_zlecenia;Klient">
+        <rdfs:subClassOf rdf:resource="&przyklad_zlecenia;Osoba"/>
+        <rdfs:comment xml:lang="pl">Ta klasa odpowiada zbiorowi encji Klienci z ERD. Przejmuje atrybuty klasy Osoba. Atrybut StałyKlient jest zrealizowany jako przynależność do klasy dziedziczącej KlientStały.
+Atrybut DataRejestracji został pominięty. Gdybyśmy chcieli go zrealizować, to rejestracja jest niewątpliwie zdarzeniem (czyli wystąpieniem klasy Perdurant).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://km.pg.gda.pl/kmg/ontologies/2015/3/przyklad_zlecenia#KlientStaly -->
+
+    <owl:Class rdf:about="&przyklad_zlecenia;KlientStaly">
+        <rdfs:subClassOf rdf:resource="&przyklad_zlecenia;Klient"/>
+        <rdfs:comment xml:lang="pl">Atrybut z diagramu ER StałyKlient jest zrealizowany jako przynależność do klasy dziedziczącej KlientStały.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://km.pg.gda.pl/kmg/ontologies/2015/3/przyklad_zlecenia#Napis -->
+
+    <owl:Class rdf:about="&przyklad_zlecenia;Napis">
+        <rdfs:subClassOf rdf:resource="&przyklad_zlecenia;FragmentPrzestrzeniNapisow"/>
+        <rdfs:subClassOf rdf:resource="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#Quale"/>
+        <rdfs:comment xml:lang="pl">Klasa Napis gromadzi obiekty będące napisami, rozumianymi jako zbiór liter (znaków jakiegoś pisma). Abstrahujemy tutaj od języków i znaczenia słów. Np. słowo TAK istnieje w języku polskim i w języku norweskim (po norwesku znaczy „dziękuję”). Z punktu widzenia językowego są to dwa różne słowa. Z punktu widzenia naszej przestrzeni napisów jest to jeden obiekt. Na dodatek jest to obiekt niepodzielny: napis AK nie jest częścią napisu TAK, lecz osobnym napisem. Dlatego jeden napis nie jest regionem, lecz quale.
+Klasa Napis zawiera za mało danych, aby można było na jej podstawie dokonać ich konwersji do innego systemu działającego w przestrzeni globalnej. Ma ona za zadanie dostarczyć wartości dla własności (Quality) typu WlasnoscTekstowa (patrz opis tej klasy). I to klasa WlasnoscTekstowa dostarcza pozostałych danych (np. informacji o języku).
+</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://km.pg.gda.pl/kmg/ontologies/2015/3/przyklad_zlecenia#Naszyjnik -->
+
+    <owl:Class rdf:about="&przyklad_zlecenia;Naszyjnik">
+        <rdfs:subClassOf rdf:resource="&przyklad_zlecenia;Produkt"/>
+        <owl:disjointWith rdf:resource="&przyklad_zlecenia;Pierscionek"/>
+        <rdfs:comment xml:lang="pl">Klasa reprezentuje rodzaj produktu. Nie jest rozłączna z innymi klasami dziedziczącymi od klasy Produkt, więc jeden produkt może należeć do wielu takich klas (odpowiada to związkowi wiele-do-wielu z ERD).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://km.pg.gda.pl/kmg/ontologies/2015/3/przyklad_zlecenia#Nazwa -->
+
+    <owl:Class rdf:about="&przyklad_zlecenia;Nazwa">
+        <rdfs:subClassOf rdf:resource="&przyklad_zlecenia;WlasnoscTekstowa"/>
+        <rdfs:comment xml:lang="pl">Do klasy tej muszą należeć obiekty reprezentujące atrybut Nazwa produktów. Klasa ta musi mieć wspólne części z klasami reprezentującymi własności tekstowe w tych językach (np. WlasnoscTekstowaPoAngielsku, WlasnoscTekstowaPoPolsku), w których chcemy wyrażać nazwy produktów.
+Jest to tylko jedna z własności tekstowych, które możemy tu umieścić, gdyby projekt miał ulec rozszerzeniu.
+</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://km.pg.gda.pl/kmg/ontologies/2015/3/przyklad_zlecenia#Nazwisko -->
+
+    <owl:Class rdf:about="&przyklad_zlecenia;Nazwisko">
+        <rdfs:subClassOf rdf:resource="&przyklad_zlecenia;WlasnoscFonetyczna"/>
+        <rdfs:comment xml:lang="pl">Klasa dziedzicząca od klasy WlasnoscFonetyczna, gromadząca nazwiska osób.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://km.pg.gda.pl/kmg/ontologies/2015/3/przyklad_zlecenia#OdbiorZamowienia -->
+
+    <owl:Class rdf:about="&przyklad_zlecenia;OdbiorZamowienia">
+        <rdfs:subClassOf rdf:resource="&przyklad_zlecenia;CzescProcesuZamowienia"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&przyklad_zlecenia;przekazal"/>
+                <owl:onClass rdf:resource="&przyklad_zlecenia;Pracownik"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&przyklad_zlecenia;dataOdbioru"/>
+                <owl:someValuesFrom rdf:resource="&xsd;dateTime"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="pl">Zdarzenie kończące proces zamówienia. Polega na przekazaniu gotowego produktu klientowi przez jednego z pracowników. Pracownik i data są zdarzeniu przypisane za pomocą odpowiednio roli przekazal i dataOdbioru. Proszę zwrócić uwagę na aksjomaty zdefiniowane w sekcji SubClass Of.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://km.pg.gda.pl/kmg/ontologies/2015/3/przyklad_zlecenia#OplacenieZamowienia -->
+
+    <owl:Class rdf:about="&przyklad_zlecenia;OplacenieZamowienia">
+        <rdfs:subClassOf rdf:resource="&przyklad_zlecenia;CzescProcesuZamowienia"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&przyklad_zlecenia;przyjal"/>
+                <owl:onClass rdf:resource="&przyklad_zlecenia;Pracownik"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&przyklad_zlecenia;dataOplaty"/>
+                <owl:someValuesFrom rdf:resource="&xsd;dateTime"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="pl">Zdarzenie polegające na uiszczeniu zapłaty przez klienta. Zapłatę przyjmuje jeden z pracowników. Pracownik i data są zdarzeniu przypisane za pomocą odpowiednio roli przekazal i dataOplaty. Proszę zwrócić uwagę na aksjomaty zdefiniowane w sekcji SubClass Of.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://km.pg.gda.pl/kmg/ontologies/2015/3/przyklad_zlecenia#Osoba -->
+
+    <owl:Class rdf:about="&przyklad_zlecenia;Osoba">
+        <rdfs:subClassOf rdf:resource="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#PhysicalObject"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&przyklad_zlecenia;maImie"/>
+                <owl:someValuesFrom rdf:resource="&przyklad_zlecenia;Imie"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&przyklad_zlecenia;maNazwisko"/>
+                <owl:onClass rdf:resource="&przyklad_zlecenia;Nazwisko"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="pl">Klasę Osoba kwalifikujemy jako PhysicalObject. Nie interesuje nas &quot;życie wewnętrzne&quot; ludzi, których nasza baza obejmuje, lecz ich cechy fizyczne (w szczególności ich fizyczny udział w procesie zamówienia).
+Należy zwrócić uwagę na sposób realizacji atrybutów Imię i Nazwisko. Zostały one zrealizowane jako role maImie i maNazwisko. Obie te role przyporządkowują osobie osobniki odpowiednio typu Imie i Nazwisko, a typy te specjalizują klasę WlasnoscFonetyczna, która z kolei jest specjalizacją klasy Quality.
+Nie jest to więc bezpośrednie przyporządkowanie osobie wartości tekstowej.
+Wynika to ze specyfiki imion i nazwisk, polegającej na tym, że zawsze dbamy o ich właściwe brzmienie. W środowisku o zasięgu globalnym (np. Interncie) zwykłe napisy, takie jak nazwa produktu (patrz klasa WlasnoscTekstowa), po prostu tłumaczymy na inne języki. Nazwiska staramy się zapisać tak, aby brzmiały w każdym języku podobnie.
+Patrz opis klas WlasnoscFonetyczna oraz FragmentPrzestrzeniFonetycznej.
+</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://km.pg.gda.pl/kmg/ontologies/2015/3/przyklad_zlecenia#Pierscionek -->
+
+    <owl:Class rdf:about="&przyklad_zlecenia;Pierscionek">
+        <rdfs:subClassOf rdf:resource="&przyklad_zlecenia;Produkt"/>
+        <rdfs:comment xml:lang="pl">Klasa reprezentuje rodzaj produktu. Nie jest rozłączna z innymi klasami dziedziczącymi od klasy Produkt, więc jeden produkt może należeć do wielu takich klas (odpowiada to związkowi wiele-do-wielu z ERD).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://km.pg.gda.pl/kmg/ontologies/2015/3/przyklad_zlecenia#Pracownik -->
+
+    <owl:Class rdf:about="&przyklad_zlecenia;Pracownik">
+        <rdfs:subClassOf rdf:resource="&przyklad_zlecenia;Osoba"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&przyklad_zlecenia;podlegaBezposrednio"/>
+                <owl:onClass rdf:resource="&przyklad_zlecenia;Pracownik"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="pl">Realizuje zbiór encji Pracownicy.
+Pracownik może bezpośrednio podlegać maksymalnie jednemu pracownikowi (patrz opis ról podlega i podlegaBezposrednio).
+Atrybut Zatrudniony jest zrealizowany jako przynależność do klasy dziedziczącej PracownikObecnieZatrudniony.
+</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://km.pg.gda.pl/kmg/ontologies/2015/3/przyklad_zlecenia#PracownikObecnieZatrudniony -->
+
+    <owl:Class rdf:about="&przyklad_zlecenia;PracownikObecnieZatrudniony">
+        <rdfs:subClassOf rdf:resource="&przyklad_zlecenia;Pracownik"/>
+        <rdfs:comment xml:lang="pl">Atrybut Zatrudniony z diagramu ER jest zrealizowany jako przynależność do klasy dziedziczącej PracownikObecnieZatrudniony.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://km.pg.gda.pl/kmg/ontologies/2015/3/przyklad_zlecenia#Produkt -->
+
+    <owl:Class rdf:about="&przyklad_zlecenia;Produkt">
+        <rdfs:subClassOf rdf:resource="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#PhysicalObject"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&przyklad_zlecenia;maNazwe"/>
+                <owl:onClass>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&przyklad_zlecenia;Nazwa"/>
+                            <rdf:Description rdf:about="&przyklad_zlecenia;WlasnoscTekstowaPoPolsku"/>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:onClass>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&przyklad_zlecenia;wartosc"/>
+                <owl:allValuesFrom>
+                    <rdfs:Datatype>
+                        <owl:onDatatype rdf:resource="&xsd;decimal"/>
+                        <owl:withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:minExclusive rdf:datatype="&xsd;integer">0</xsd:minExclusive>
+                            </rdf:Description>
+                        </owl:withRestrictions>
+                    </rdfs:Datatype>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="pl">Produkt jest także obiektem fizycznym. Arbitralnie pomijamy tutaj fakt, że powstanie produktu wiąże się z procesem wytwórczym.
+Atrybut NrEwidencyjny jest atrybutem kluczowym dla tej klasy. Definiujemy to w ten sposób, że (oczywiście po zdefiniowaniu odpowiedniego atrybutu na zakładce Data Properties) wstawiamy ten atrybut  do sekcji Target for Key (zakładka Classes). Gdyby klucz miał być złożony, możemy do tej sekcji wstawić więcej atrybutów.
+Proszę zwrócić uwagę na sposób realizacji atrybutu Nazwa. Został on zrealizowany jako rola maNazwe. Rola ta przyporządkowuje produktowi osobniki typu Nazwa, a typ ten specjalizuje klasę WlasnoscTekstowa, która z kolei jest specjalizacją klasy Quality.
+Nie jest to więc bezpośrednie przyporządkowanie produktowi wartości tekstowej. Wynika to z tego, że w środowisku o zasięgu globalnym (np. Internecie) napisy tłumaczymy na inne języki. Dlatego potrzebna nam jest wiedza o tym, w jakim języku dany tekst jest wyrażony.
+Patrz opis klasy WlasnoscTekstowa i klas od niej dziedziczących.
+Każdy produkt może mieć tylko jedną nazwę polską (ograniczenie: maNazwe exactly 1 (Nazwa and WlasnoscTekstowaPoPolsku)). Można, dodając więcej takich ograniczeń, tę zasadę także rozszerzyć na inne języki.
+Warty uwagi jest także sposób realizacji zbioru encji z ERD o nazwie RodzajeProduktów i związku jestRodzaju. Tutaj jest to zrealizowane jako szereg klas dziedziczących od klasy Produkt: np. Naszyjnik, Pierscionek, ProduktZeZlota itp. Zaletą takiego rozwiązania jest mniejsza złożoność wnioskowania w porównaniu z rozwiązaniami wykorzystującymi role, Wadą jest konieczność tworzenia nowej klasy, gdy pojawi się nowy rodzaj produktu.
+</rdfs:comment>
+        <owl:hasKey rdf:parseType="Collection">
+            <rdf:Description rdf:about="&przyklad_zlecenia;nrEwidencyjny"/>
+        </owl:hasKey>
+    </owl:Class>
+    
+
+
+    <!-- http://km.pg.gda.pl/kmg/ontologies/2015/3/przyklad_zlecenia#ProduktZBrylantami -->
+
+    <owl:Class rdf:about="&przyklad_zlecenia;ProduktZBrylantami">
+        <rdfs:subClassOf rdf:resource="&przyklad_zlecenia;Produkt"/>
+        <owl:disjointWith rdf:resource="&przyklad_zlecenia;ProduktZTombaku"/>
+        <rdfs:comment xml:lang="pl">Klasa reprezentuje rodzaj produktu. Nie jest rozłączna z innymi klasami dziedziczącymi od klasy Produkt, więc jeden produkt może należeć do wielu takich klas (odpowiada to związkowi wiele-do-wielu z ERD).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://km.pg.gda.pl/kmg/ontologies/2015/3/przyklad_zlecenia#ProduktZTombaku -->
+
+    <owl:Class rdf:about="&przyklad_zlecenia;ProduktZTombaku">
+        <rdfs:subClassOf rdf:resource="&przyklad_zlecenia;Produkt"/>
+        <rdfs:comment xml:lang="pl">Klasa reprezentuje rodzaj produktu. Nie jest rozłączna z innymi klasami dziedziczącymi od klasy Produkt, więc jeden produkt może należeć do wielu takich klas (odpowiada to związkowi wiele-do-wielu z ERD).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://km.pg.gda.pl/kmg/ontologies/2015/3/przyklad_zlecenia#ProduktZeZlota -->
+
+    <owl:Class rdf:about="&przyklad_zlecenia;ProduktZeZlota">
+        <rdfs:subClassOf rdf:resource="&przyklad_zlecenia;Produkt"/>
+        <rdfs:comment xml:lang="pl">Klasa reprezentuje rodzaj produktu. Nie jest rozłączna z innymi klasami dziedziczącymi od klasy Produkt, więc jeden produkt może należeć do wielu takich klas (odpowiada to związkowi wiele-do-wielu z ERD).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://km.pg.gda.pl/kmg/ontologies/2015/3/przyklad_zlecenia#RealizacjaZamowienia -->
+
+    <owl:Class rdf:about="&przyklad_zlecenia;RealizacjaZamowienia">
+        <rdfs:subClassOf rdf:resource="&przyklad_zlecenia;CzescProcesuZamowienia"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&przyklad_zlecenia;zrealizowal"/>
+                <owl:onClass rdf:resource="&przyklad_zlecenia;Pracownik"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&przyklad_zlecenia;dataRealizacji"/>
+                <owl:someValuesFrom rdf:resource="&xsd;dateTime"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="pl">Zdarzenie polegające na wytworzeniu produktu przez jednego z pracowników. Pracownik i data są zdarzeniu przypisane za pomocą odpowiednio roli przekazal i dataRealizacji. Proszę zwrócić uwagę na aksjomaty zdefiniowane w sekcji SubClass Of.
+Zakwalifikowanie realizacji jako zdarzenia jest oczywiście uproszczeniem. Wytworzenie produktu jest przecież także procesem.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://km.pg.gda.pl/kmg/ontologies/2015/3/przyklad_zlecenia#WlasnoscFonetyczna -->
+
+    <owl:Class rdf:about="&przyklad_zlecenia;WlasnoscFonetyczna">
+        <rdfs:subClassOf rdf:resource="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#Quality"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&przyklad_zlecenia;maBrzmienie"/>
+                <owl:onClass rdf:resource="&przyklad_zlecenia;FragmentPrzestrzeniFonetycznej"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="pl">Klasa WlasnoscFonetyczna specjalizuje klasę Quality w celu ujęcia tych własności obiektów, które wiążą się z brzmieniem wypowiadanych słów. Przykładowo mogą to być nazwy własne, imiona, nazwiska.
+Wartością własności fonetycznej jest fragment przestrzeni fonetycznej, który jest jej przyporządkowany za pomocą roli maBrzmienie.
+Każdy osobnik tej klasy może być własnością tylko jednego obiektu. Na przykład jeśli dwie osoby mają nazwisko Kowalski, to tutaj także powinny istnieć dwa osobniki. Oba powinny mieć przypisany ten sam fragment przestrzeni fonetycznej, reprezentujący brzmienie nazwiska Kowalski.
+</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://km.pg.gda.pl/kmg/ontologies/2015/3/przyklad_zlecenia#WlasnoscTekstowa -->
+
+    <owl:Class rdf:about="&przyklad_zlecenia;WlasnoscTekstowa">
+        <rdfs:subClassOf rdf:resource="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#Quality"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&przyklad_zlecenia;maNapis"/>
+                <owl:someValuesFrom rdf:resource="&przyklad_zlecenia;Napis"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="pl">Klasa WlasnoscTekstowa specjalizuje klasę Quality w celu ujęcia własności tekstowych obiektów. Przykładowo może to być nazwa towaru.
+Wartością własności tekstowej jest napis, fragment przestrzeni napisów, który jest jej przyporządkowany za pomocą roli maNapis.
+Każdy osobnik tej klasy może być własnością tylko jednego obiektu. Na przykład jeśli dwa produkty mają nazwę „pierścionek z brylantem”, to tutaj także powinny istnieć dwa osobniki. Oba powinny mieć przypisany ten sam napis w przestrzeni napisów.
+W środowisku o zasięgu globalnym (np. Internecie) napisy tłumaczymy na inne języki. Dlatego do połączenia danych z innymi systemami potrzebna jest nam wiedza o tym, w jaki języku wyrażona jest informacja reprezentowana przez dany napis. Wiedza ta jest tutaj zapamiętywana poprzez przyporządkowanie własności tekstowej do jednej z klas dziedziczących od klasy WlasnoscTekstowa: np. WlasnoscTekstowaPoAngielsku, WlasnoscTekstowaPoPolsku. Jeśli np. nazwa danego towaru jest wyrażona po polsku, to własność ta musi być wystąpieniem klasy Nazwa and WlasnoscTekstowaPoPolsku.
+</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://km.pg.gda.pl/kmg/ontologies/2015/3/przyklad_zlecenia#WlasnoscTekstowaPoAngielsku -->
+
+    <owl:Class rdf:about="&przyklad_zlecenia;WlasnoscTekstowaPoAngielsku">
+        <rdfs:subClassOf rdf:resource="&przyklad_zlecenia;WlasnoscTekstowa"/>
+        <owl:disjointWith rdf:resource="&przyklad_zlecenia;WlasnoscTekstowaPoPolsku"/>
+        <rdfs:comment xml:lang="pl">Klasa jest przygotowana na to, aby gromadzić wszystkie własności tekstowe wyrażane w języku angielskim.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://km.pg.gda.pl/kmg/ontologies/2015/3/przyklad_zlecenia#WlasnoscTekstowaPoPolsku -->
+
+    <owl:Class rdf:about="&przyklad_zlecenia;WlasnoscTekstowaPoPolsku">
+        <rdfs:subClassOf rdf:resource="&przyklad_zlecenia;WlasnoscTekstowa"/>
+        <rdfs:comment xml:lang="pl">Klasa jest przygotowana na to, aby gromadzić wszystkie własności tekstowe wyrażane w języku polskim.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://km.pg.gda.pl/kmg/ontologies/2015/3/przyklad_zlecenia#Zamowienie -->
+
+    <owl:Class rdf:about="&przyklad_zlecenia;Zamowienie">
+        <rdfs:subClassOf rdf:resource="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#Process"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&przyklad_zlecenia;etapWykonany"/>
+                <owl:onClass rdf:resource="&przyklad_zlecenia;OdbiorZamowienia"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&przyklad_zlecenia;zlozyl"/>
+                <owl:onClass rdf:resource="&przyklad_zlecenia;Klient"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&przyklad_zlecenia;etapWykonany"/>
+                <owl:onClass rdf:resource="&przyklad_zlecenia;OplacenieZamowienia"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&przyklad_zlecenia;etapWykonany"/>
+                <owl:onClass rdf:resource="&przyklad_zlecenia;RealizacjaZamowienia"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&przyklad_zlecenia;wartosc"/>
+                <owl:someValuesFrom>
+                    <rdfs:Datatype>
+                        <owl:onDatatype rdf:resource="&xsd;decimal"/>
+                        <owl:withRestrictions rdf:parseType="Collection">
+                            <rdf:Description>
+                                <xsd:minExclusive rdf:datatype="&xsd;integer">0</xsd:minExclusive>
+                            </rdf:Description>
+                        </owl:withRestrictions>
+                    </rdfs:Datatype>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&przyklad_zlecenia;etapWykonany"/>
+                <owl:onClass rdf:resource="&przyklad_zlecenia;ZlozenieZamowienia"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="pl">Za zaliczeniem klasy Zamowienie do klasy Perdurant przemawia wiele argumentów. Przede wszystkim, na diagramie ER atrybuty tej klasy obejmują datę złożenia, datę realizacji i datę odbioru. Oznacza to, że zamówienie jest procesem rozciągniętym w czasie, posiadającym klika etapów. Nawet jednek jeśli takich etapów by nie było, to byłoby zdarzeniem, w którym bierze udział wielu uczestników. Dobrze więc byłoby tych uczestników dołączyć do zlecenia za pomocą roli typu participant.
+Aksjomaty w sekcji SubClasOf mają na celu wymuszenie odpowiedniej liczności ról etapWykonany, czyli przypisania procesowi odpowiedniej ilości zdarzeń wchodzących w jego skład (np. zamówienie musi posiadać dokładnie jedno zdarzenie złożenia zamówienia, ale co najwyżej jeden każdy z innych etapów). Przypisują także zamówieniu atrybut wartosc i rolę zlozyl.
+W sekcji Target for Key (zakładka Classes) jest przypisany klucz, czyli atrybut, który w sposób unikalny pozwala zidentyfikować obiekt.</rdfs:comment>
+        <owl:hasKey rdf:parseType="Collection">
+            <rdf:Description rdf:about="&przyklad_zlecenia;nrZamowienia"/>
+        </owl:hasKey>
+    </owl:Class>
+    
+
+
+    <!-- http://km.pg.gda.pl/kmg/ontologies/2015/3/przyklad_zlecenia#ZamowienieOdebrane -->
+
+    <owl:Class rdf:about="&przyklad_zlecenia;ZamowienieOdebrane">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&przyklad_zlecenia;etapWykonany"/>
+                <owl:someValuesFrom rdf:resource="&przyklad_zlecenia;OdbiorZamowienia"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&przyklad_zlecenia;ZamowienieZrealizowane"/>
+        <rdfs:comment xml:lang="pl">Klasa pomocnicza obejmująca zamówienia zrealizowane. Służy wraz z klasą ZamowienieZrealizowane do nałożenia ograniczenia zabraniającego istnienie zamówienia, które będzie posiadało etap odbioru bez etapu realizacji. Uwaga: brak osobnika reprezentującego etap realizacji przy istniejącym osobniku reprezentującym odbiór nie oznacza, że system wnioskujący stwierdzi niespójność ontologii. W logice opartej na OWA zakładamy, że nie wszystkie fakty są nam znane. Powyższy brak będzie więc interpretowany w ten sposób, że odpowiedni osobnik istnieje, ale nie mamy o tym informacji. „Sprzeciw” wywoła dopiero jawne stwierdzenie, że dane zamówienie (osobnik) ma etap odbioru, lecz nie ma etapu realizacji (można to wyrazić np. tak: etapRealizacji(z, o) and OdbiorZamowienia(o) and (not etapRealizacji some RealizacjaZamowienia)(z); albo prościej: ZamowienieOdebrane(z) and not ZamowienieZrealizowane(z)).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://km.pg.gda.pl/kmg/ontologies/2015/3/przyklad_zlecenia#ZamowienieOplacone -->
+
+    <owl:Class rdf:about="&przyklad_zlecenia;ZamowienieOplacone">
+        <rdfs:subClassOf rdf:resource="&przyklad_zlecenia;Zamowienie"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&przyklad_zlecenia;etapWykonany"/>
+                <owl:someValuesFrom rdf:resource="&przyklad_zlecenia;OplacenieZamowienia"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="pl">Klasa pomocnicza obejmująca zamówienia opłacone. Wprowadzona w celu zilustrowania możliwości wnioskowania.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://km.pg.gda.pl/kmg/ontologies/2015/3/przyklad_zlecenia#ZamowienieZrealizowane -->
+
+    <owl:Class rdf:about="&przyklad_zlecenia;ZamowienieZrealizowane">
+        <rdfs:subClassOf rdf:resource="&przyklad_zlecenia;Zamowienie"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&przyklad_zlecenia;etapWykonany"/>
+                <owl:someValuesFrom rdf:resource="&przyklad_zlecenia;RealizacjaZamowienia"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="pl">Klasa pomocnicza obejmująca zamówienia zrealizowane. Służy wraz z klasą ZamowienieOdebrane do nałożenia ograniczenia zabraniającego istnienie zamówienia, które będzie posiadało etap odbioru bez etapu realizacji. Uwaga: brak osobnika reprezentującego etap realizacji przy istniejącym osobniku reprezentującym odbiór nie oznacza, że system wnioskujący stwierdzi niespójność ontologii. W logice opartej na OWA zakładamy, że nie wszystkie fakty są nam znane. Powyższy brak będzie więc interpretowany w ten sposób, że odpowiedni osobnik istnieje, ale nie mamy o tym informacji. „Sprzeciw” wywoła dopiero jawne stwierdzenie, że dane zamówienie (osobnik) ma etap odbioru, lecz nie ma etapu realizacji (można to wyrazić np. tak: etapRealizacji(z, o) and OdbiorZamowienia(o) and (not etapRealizacji some RealizacjaZamowienia)(z); albo prościej: ZamowienieOdebrane(z) and not ZamowienieZrealizowane(z)).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://km.pg.gda.pl/kmg/ontologies/2015/3/przyklad_zlecenia#ZlozenieZamowienia -->
+
+    <owl:Class rdf:about="&przyklad_zlecenia;ZlozenieZamowienia">
+        <rdfs:subClassOf rdf:resource="&przyklad_zlecenia;CzescProcesuZamowienia"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&przyklad_zlecenia;przyjal"/>
+                <owl:onClass rdf:resource="&przyklad_zlecenia;Pracownik"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&przyklad_zlecenia;dataZlozenia"/>
+                <owl:someValuesFrom rdf:resource="&xsd;dateTime"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="pl">Zdarzenie inicjujące proces zamówienia. Polega na złożeniu zamówienia przez klienta i przyjęciu go przez jednego z pracowników. Pracownik i data są zdarzeniu przypisane za pomocą odpowiednio roli przekazal i dataZlozenia. Proszę zwrócić uwagę na aksjomaty zdefiniowane w sekcji SubClass Of.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://km.pg.gda.pl/kmg/ontologies/2015/3/przyklad_zlecenia#przestrzenFonetyczna -->
+
+    <owl:NamedIndividual rdf:about="&przyklad_zlecenia;przestrzenFonetyczna">
+        <rdf:type rdf:resource="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#QualitySpace"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://km.pg.gda.pl/kmg/ontologies/2015/3/przyklad_zlecenia#przestrzenNapisow -->
+
+    <owl:NamedIndividual rdf:about="&przyklad_zlecenia;przestrzenNapisow">
+        <rdf:type rdf:resource="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#QualitySpace"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

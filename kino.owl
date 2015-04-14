@@ -1,0 +1,703 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE Ontology [
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY xml "http://www.w3.org/XML/1998/namespace" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.semanticweb.org/daids/ontologies/2015/3/untitled-ontology-3"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     ontologyIRI="http://www.semanticweb.org/daids/ontologies/2015/3/untitled-ontology-3">
+    <Prefix name="" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Import>http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence</Import>
+    <Declaration>
+        <Class IRI="#Bilet"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#CzęśćSeansu"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Dystrybutor"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Film"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#FragmentPrzestrzeniFonetycznej"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#FragmentPrzestrzeniNapisów"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Imię"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Kino"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Napis"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Nazwisko"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Pracownik"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ProjekcjaFilmu"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Sala"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Seans"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SprzedażBiletów"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#WłasnośćFonetyczna"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ZakupFilmu"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#maBrzmienie"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#maImię"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#maNazwisko"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#cena"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#cenaNormalny"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#cenaUlgowy"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#dubbing"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#dzieńTygodnia"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#gatunek"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#ilośćMiejsc"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#ilośćSztukNormalny"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#ilośćSztukUlgowy"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#koszt"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#liczbaEmisji"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#miasto"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#napis"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#nazwa"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#numerBudynku"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#numerKonta"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#numerSali"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#numerSeansu"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#numerSprzedaży"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#producent"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#reżyser"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#rokWydania"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#technologia"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#tytuł"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#ulica"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#zapis"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#zapisArabski"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#zapisCyrylica"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#zapisFonetyczny"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#zapisMandaryński"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#zapisŁaciński"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#przestrzeńFonetyczna"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#przestrzeńNapisów"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class IRI="#FragmentPrzestrzeniFonetycznej"/>
+        <ObjectUnionOf>
+            <ObjectOneOf>
+                <NamedIndividual IRI="#przestrzeńFonetyczna"/>
+            </ObjectOneOf>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#partOf"/>
+                <ObjectOneOf>
+                    <NamedIndividual IRI="#przestrzeńFonetyczna"/>
+                </ObjectOneOf>
+            </ObjectSomeValuesFrom>
+        </ObjectUnionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#FragmentPrzestrzeniNapisów"/>
+        <ObjectUnionOf>
+            <ObjectOneOf>
+                <NamedIndividual IRI="#przestrzeńNapisów"/>
+            </ObjectOneOf>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#partOf"/>
+                <ObjectOneOf>
+                    <NamedIndividual IRI="#przestrzeńNapisów"/>
+                </ObjectOneOf>
+            </ObjectSomeValuesFrom>
+        </ObjectUnionOf>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class IRI="#Bilet"/>
+        <Class IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#PhysicalObject"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#CzęśćSeansu"/>
+        <Class IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#Event"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Dystrybutor"/>
+        <Class IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#NonPhysicalEndurant"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Film"/>
+        <Class IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#NonPhysicalEndurant"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#FragmentPrzestrzeniFonetycznej"/>
+        <Class IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#Region"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#FragmentPrzestrzeniFonetycznej"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#zapis"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#FragmentPrzestrzeniNapisów"/>
+        <Class IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#Region"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#FragmentPrzestrzeniNapisów"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#napis"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Imię"/>
+        <Class IRI="#WłasnośćFonetyczna"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Kino"/>
+        <Class IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#PhysicalObject"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Napis"/>
+        <Class IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#Quale"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Nazwisko"/>
+        <Class IRI="#WłasnośćFonetyczna"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Pracownik"/>
+        <Class IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#PhysicalObject"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Pracownik"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#maImię"/>
+            <Class IRI="#Imię"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Pracownik"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#maNazwisko"/>
+            <Class IRI="#Nazwisko"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ProjekcjaFilmu"/>
+        <Class IRI="#CzęśćSeansu"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Sala"/>
+        <Class IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#PhysicalObject"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Seans"/>
+        <Class IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#Process"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SprzedażBiletów"/>
+        <Class IRI="#CzęśćSeansu"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#WłasnośćFonetyczna"/>
+        <Class IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#Quality"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#WłasnośćFonetyczna"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#maBrzmienie"/>
+            <Class IRI="#FragmentPrzestrzeniFonetycznej"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ZakupFilmu"/>
+        <Class IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#Event"/>
+    </SubClassOf>
+    <ClassAssertion>
+        <Class IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#QualitySpace"/>
+        <NamedIndividual IRI="#przestrzeńFonetyczna"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#QualitySpace"/>
+        <NamedIndividual IRI="#przestrzeńNapisów"/>
+    </ClassAssertion>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#maBrzmienie"/>
+        <ObjectProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#q-location"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#maImię"/>
+        <ObjectProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#hasQuality"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#maNazwisko"/>
+        <ObjectProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#hasQuality"/>
+    </SubObjectPropertyOf>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#maBrzmienie"/>
+        <Class IRI="#WłasnośćFonetyczna"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#maImię"/>
+        <Class IRI="#Pracownik"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#maNazwisko"/>
+        <Class IRI="#Pracownik"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#maBrzmienie"/>
+        <Class IRI="#FragmentPrzestrzeniFonetycznej"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#maImię"/>
+        <Class IRI="#Imię"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#maNazwisko"/>
+        <Class IRI="#Nazwisko"/>
+    </ObjectPropertyRange>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#cena"/>
+        <DataProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#mediatedAttribute"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#cenaNormalny"/>
+        <DataProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#mediatedAttribute"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#cenaUlgowy"/>
+        <DataProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#mediatedAttribute"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#dubbing"/>
+        <DataProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#mediatedAttribute"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#dzieńTygodnia"/>
+        <DataProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#mediatedAttribute"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#gatunek"/>
+        <DataProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#mediatedAttribute"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#ilośćMiejsc"/>
+        <DataProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#mediatedAttribute"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#ilośćSztukNormalny"/>
+        <DataProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#mediatedAttribute"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#ilośćSztukUlgowy"/>
+        <DataProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#mediatedAttribute"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#koszt"/>
+        <DataProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#mediatedAttribute"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#liczbaEmisji"/>
+        <DataProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#mediatedAttribute"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#miasto"/>
+        <DataProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#mediatedAttribute"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#napis"/>
+        <DataProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#immediateAttribute"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#nazwa"/>
+        <DataProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#mediatedAttribute"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#numerBudynku"/>
+        <DataProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#mediatedAttribute"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#numerKonta"/>
+        <DataProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#mediatedAttribute"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#numerSali"/>
+        <DataProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#mediatedAttribute"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#numerSeansu"/>
+        <DataProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#mediatedAttribute"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#numerSprzedaży"/>
+        <DataProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#mediatedAttribute"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#producent"/>
+        <DataProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#mediatedAttribute"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#reżyser"/>
+        <DataProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#mediatedAttribute"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#rokWydania"/>
+        <DataProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#mediatedAttribute"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#technologia"/>
+        <DataProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#mediatedAttribute"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#tytuł"/>
+        <DataProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#mediatedAttribute"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#ulica"/>
+        <DataProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#mediatedAttribute"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#zapis"/>
+        <DataProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#immediateAttribute"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#zapisArabski"/>
+        <DataProperty IRI="#zapis"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#zapisCyrylica"/>
+        <DataProperty IRI="#zapis"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#zapisFonetyczny"/>
+        <DataProperty IRI="#zapis"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#zapisMandaryński"/>
+        <DataProperty IRI="#zapis"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#zapisŁaciński"/>
+        <DataProperty IRI="#zapis"/>
+    </SubDataPropertyOf>
+    <DataPropertyDomain>
+        <DataProperty IRI="#cena"/>
+        <Class IRI="#ZakupFilmu"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#cenaNormalny"/>
+        <Class IRI="#Bilet"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#cenaUlgowy"/>
+        <Class IRI="#Bilet"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#dubbing"/>
+        <Class IRI="#Bilet"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#dzieńTygodnia"/>
+        <Class IRI="#Bilet"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#gatunek"/>
+        <Class IRI="#Film"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#ilośćMiejsc"/>
+        <Class IRI="#Sala"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#ilośćSztukNormalny"/>
+        <Class IRI="#SprzedażBiletów"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#ilośćSztukUlgowy"/>
+        <Class IRI="#SprzedażBiletów"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#koszt"/>
+        <Class IRI="#Seans"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#liczbaEmisji"/>
+        <Class IRI="#ZakupFilmu"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#miasto"/>
+        <Class IRI="#Kino"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#napis"/>
+        <Class IRI="#Napis"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#nazwa"/>
+        <ObjectUnionOf>
+            <Class IRI="#Dystrybutor"/>
+            <Class IRI="#Kino"/>
+        </ObjectUnionOf>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#numerBudynku"/>
+        <Class IRI="#Kino"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#numerKonta"/>
+        <Class IRI="#Dystrybutor"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#numerSali"/>
+        <Class IRI="#Sala"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#numerSeansu"/>
+        <Class IRI="#Seans"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#numerSprzedaży"/>
+        <Class IRI="#SprzedażBiletów"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#producent"/>
+        <Class IRI="#Film"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#reżyser"/>
+        <Class IRI="#Film"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#rokWydania"/>
+        <Class IRI="#Film"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#technologia"/>
+        <Class IRI="#Bilet"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#tytuł"/>
+        <Class IRI="#Film"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#ulica"/>
+        <Class IRI="#Kino"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#zapis"/>
+        <Class IRI="#FragmentPrzestrzeniFonetycznej"/>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty IRI="#cena"/>
+        <Datatype abbreviatedIRI="xsd:short"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#cenaNormalny"/>
+        <Datatype abbreviatedIRI="xsd:short"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#cenaUlgowy"/>
+        <Datatype abbreviatedIRI="xsd:short"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#dubbing"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#dzieńTygodnia"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#gatunek"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#ilośćMiejsc"/>
+        <Datatype abbreviatedIRI="xsd:short"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#ilośćSztukNormalny"/>
+        <Datatype abbreviatedIRI="xsd:short"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#ilośćSztukUlgowy"/>
+        <Datatype abbreviatedIRI="xsd:short"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#koszt"/>
+        <Datatype abbreviatedIRI="xsd:short"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#liczbaEmisji"/>
+        <Datatype abbreviatedIRI="xsd:short"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#miasto"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#napis"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#nazwa"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#numerBudynku"/>
+        <Datatype abbreviatedIRI="xsd:short"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#numerKonta"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#numerSali"/>
+        <Datatype abbreviatedIRI="xsd:short"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#numerSeansu"/>
+        <Datatype abbreviatedIRI="xsd:short"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#numerSprzedaży"/>
+        <Datatype abbreviatedIRI="xsd:short"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#producent"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#reżyser"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#rokWydania"/>
+        <Datatype abbreviatedIRI="xsd:short"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#technologia"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#tytuł"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#ulica"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#zapis"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <HasKey>
+        <Class IRI="#FragmentPrzestrzeniFonetycznej"/>
+        <DataProperty IRI="#zapisŁaciński"/>
+    </HasKey>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+
