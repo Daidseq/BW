@@ -26,6 +26,15 @@
         <Class IRI="#Bilet"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#Cena"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#CenaNormalny"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#CenaUlgowy"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#CzęśćSeansu"/>
     </Declaration>
     <Declaration>
@@ -41,6 +50,9 @@
         <Class IRI="#FragmentPrzestrzeniNapisów"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#FragmentPrzestrzeniWartości"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#Imię"/>
     </Declaration>
     <Declaration>
@@ -48,6 +60,9 @@
     </Declaration>
     <Declaration>
         <Class IRI="#Napis"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Nazwa"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Nazwisko"/>
@@ -68,28 +83,52 @@
         <Class IRI="#SprzedażBiletów"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#Wartość"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#WłasnośćFonetyczna"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#WłasnośćTekstowa"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#WłasnośćWartości"/>
     </Declaration>
     <Declaration>
         <Class IRI="#ZakupFilmu"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#etapWykonany"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="#maBrzmienie"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#maCenę"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#maCenęNormalną"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#maCenęUlgową"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#maImię"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#maNapis"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="#maNazwisko"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#cena"/>
+        <ObjectProperty IRI="#maNazwę"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#cenaNormalny"/>
+        <ObjectProperty IRI="#maWartość"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#cenaUlgowy"/>
+        <DataProperty IRI="#dataSprzedaży"/>
     </Declaration>
     <Declaration>
         <DataProperty IRI="#dubbing"/>
@@ -158,6 +197,18 @@
         <DataProperty IRI="#ulica"/>
     </Declaration>
     <Declaration>
+        <DataProperty IRI="#wartość"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#wartośćEURO"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#wartośćPLN"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#wartośćUSD"/>
+    </Declaration>
+    <Declaration>
         <DataProperty IRI="#zapis"/>
     </Declaration>
     <Declaration>
@@ -180,6 +231,9 @@
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#przestrzeńNapisów"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#przestrzeńWartości"/>
     </Declaration>
     <EquivalentClasses>
         <Class IRI="#FragmentPrzestrzeniFonetycznej"/>
@@ -209,17 +263,73 @@
             </ObjectSomeValuesFrom>
         </ObjectUnionOf>
     </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#FragmentPrzestrzeniWartości"/>
+        <ObjectUnionOf>
+            <ObjectOneOf>
+                <NamedIndividual IRI="#przestrzeńWartości"/>
+            </ObjectOneOf>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#partOf"/>
+                <ObjectOneOf>
+                    <NamedIndividual IRI="#przestrzeńWartości"/>
+                </ObjectOneOf>
+            </ObjectSomeValuesFrom>
+        </ObjectUnionOf>
+    </EquivalentClasses>
     <SubClassOf>
         <Class IRI="#Bilet"/>
         <Class IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#PhysicalObject"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Bilet"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#maCenęNormalną"/>
+            <Class IRI="#CenaNormalny"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Bilet"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#maCenęUlgową"/>
+            <Class IRI="#CenaUlgowy"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Cena"/>
+        <Class IRI="#WłasnośćWartości"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#CenaNormalny"/>
+        <Class IRI="#WłasnośćWartości"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#CenaUlgowy"/>
+        <Class IRI="#WłasnośćWartości"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#CzęśćSeansu"/>
         <Class IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#Event"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="#CzęśćSeansu"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectInverseOf>
+                <ObjectProperty IRI="#etapWykonany"/>
+            </ObjectInverseOf>
+            <Class IRI="#Seans"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#Dystrybutor"/>
         <Class IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#NonPhysicalEndurant"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Dystrybutor"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#maNazwę"/>
+            <Class IRI="#Nazwa"/>
+        </ObjectExactCardinality>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Film"/>
@@ -248,6 +358,29 @@
         </DataSomeValuesFrom>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="#FragmentPrzestrzeniWartości"/>
+        <Class IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#Region"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#FragmentPrzestrzeniWartości"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#wartość"/>
+            <Datatype abbreviatedIRI="xsd:short"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#FragmentPrzestrzeniWartości"/>
+        <DataAllValuesFrom>
+            <DataProperty IRI="#wartość"/>
+            <DatatypeRestriction>
+                <Datatype abbreviatedIRI="xsd:decimal"/>
+                <FacetRestriction facet="&xsd;minExclusive">
+                    <Literal datatypeIRI="&xsd;integer">0</Literal>
+                </FacetRestriction>
+            </DatatypeRestriction>
+        </DataAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#Imię"/>
         <Class IRI="#WłasnośćFonetyczna"/>
     </SubClassOf>
@@ -258,6 +391,10 @@
     <SubClassOf>
         <Class IRI="#Napis"/>
         <Class IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#Quale"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Nazwa"/>
+        <Class IRI="#WłasnośćTekstowa"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Nazwisko"/>
@@ -294,8 +431,33 @@
         <Class IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#Process"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="#Seans"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#etapWykonany"/>
+            <Class IRI="#ProjekcjaFilmu"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Seans"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#etapWykonany"/>
+            <Class IRI="#SprzedażBiletów"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#SprzedażBiletów"/>
         <Class IRI="#CzęśćSeansu"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SprzedażBiletów"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#dataSprzedaży"/>
+            <Datatype abbreviatedIRI="xsd:dateTime"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Wartość"/>
+        <Class IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#Quale"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#WłasnośćFonetyczna"/>
@@ -309,8 +471,37 @@
         </ObjectExactCardinality>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="#WłasnośćTekstowa"/>
+        <Class IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#Quality"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#WłasnośćTekstowa"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#maNapis"/>
+            <Class IRI="#Napis"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#WłasnośćWartości"/>
+        <Class IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#Quality"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#WłasnośćWartości"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#maWartość"/>
+            <Class IRI="#Wartość"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#ZakupFilmu"/>
         <Class IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#Event"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ZakupFilmu"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#maCenę"/>
+            <Class IRI="#Cena"/>
+        </ObjectExactCardinality>
     </SubClassOf>
     <ClassAssertion>
         <Class IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#QualitySpace"/>
@@ -320,52 +511,142 @@
         <Class IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#QualitySpace"/>
         <NamedIndividual IRI="#przestrzeńNapisów"/>
     </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#QualitySpace"/>
+        <NamedIndividual IRI="#przestrzeńWartości"/>
+    </ClassAssertion>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#etapWykonany"/>
+        <ObjectProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#part"/>
+    </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#maBrzmienie"/>
         <ObjectProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#q-location"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
+        <ObjectProperty IRI="#maCenę"/>
+        <ObjectProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#hasQuality"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#maCenęNormalną"/>
+        <ObjectProperty IRI="#maCenę"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#maCenęUlgową"/>
+        <ObjectProperty IRI="#maCenę"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
         <ObjectProperty IRI="#maImię"/>
         <ObjectProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#hasQuality"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#maNapis"/>
+        <ObjectProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#hasQuale"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#maNazwisko"/>
         <ObjectProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#hasQuality"/>
     </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#maNazwę"/>
+        <ObjectProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#hasQuality"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#maWartość"/>
+        <ObjectProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#hasQuale"/>
+    </SubObjectPropertyOf>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#etapWykonany"/>
+        <Class IRI="#Seans"/>
+    </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#maBrzmienie"/>
         <Class IRI="#WłasnośćFonetyczna"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#maCenę"/>
+        <ObjectUnionOf>
+            <Class IRI="#Bilet"/>
+            <Class IRI="#ZakupFilmu"/>
+        </ObjectUnionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#maCenęNormalną"/>
+        <Class IRI="#Bilet"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#maCenęUlgową"/>
+        <Class IRI="#Bilet"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#maImię"/>
         <Class IRI="#Pracownik"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
+        <ObjectProperty IRI="#maNapis"/>
+        <Class IRI="#WłasnośćTekstowa"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
         <ObjectProperty IRI="#maNazwisko"/>
         <Class IRI="#Pracownik"/>
     </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#maNazwę"/>
+        <ObjectUnionOf>
+            <Class IRI="#Dystrybutor"/>
+            <Class IRI="#Kino"/>
+        </ObjectUnionOf>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#maWartość"/>
+        <Class IRI="#WłasnośćWartości"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#etapWykonany"/>
+        <Class IRI="#CzęśćSeansu"/>
+    </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#maBrzmienie"/>
         <Class IRI="#FragmentPrzestrzeniFonetycznej"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#maCenę"/>
+        <ObjectUnionOf>
+            <Class IRI="#Cena"/>
+            <Class IRI="#CenaNormalny"/>
+            <Class IRI="#CenaUlgowy"/>
+        </ObjectUnionOf>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#maCenęNormalną"/>
+        <Class IRI="#CenaNormalny"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#maCenęUlgową"/>
+        <Class IRI="#CenaUlgowy"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#maImię"/>
         <Class IRI="#Imię"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
+        <ObjectProperty IRI="#maNapis"/>
+        <Class IRI="#Napis"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
         <ObjectProperty IRI="#maNazwisko"/>
         <Class IRI="#Nazwisko"/>
     </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#maNazwę"/>
+        <Class IRI="#Nazwa"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#maWartość"/>
+        <Class IRI="#Wartość"/>
+    </ObjectPropertyRange>
     <SubDataPropertyOf>
-        <DataProperty IRI="#cena"/>
-        <DataProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#mediatedAttribute"/>
-    </SubDataPropertyOf>
-    <SubDataPropertyOf>
-        <DataProperty IRI="#cenaNormalny"/>
-        <DataProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#mediatedAttribute"/>
-    </SubDataPropertyOf>
-    <SubDataPropertyOf>
-        <DataProperty IRI="#cenaUlgowy"/>
+        <DataProperty IRI="#dataSprzedaży"/>
         <DataProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#mediatedAttribute"/>
     </SubDataPropertyOf>
     <SubDataPropertyOf>
@@ -457,6 +738,22 @@
         <DataProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#mediatedAttribute"/>
     </SubDataPropertyOf>
     <SubDataPropertyOf>
+        <DataProperty IRI="#wartość"/>
+        <DataProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#immediateAttribute"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#wartośćEURO"/>
+        <DataProperty IRI="#wartość"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#wartośćPLN"/>
+        <DataProperty IRI="#wartość"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#wartośćUSD"/>
+        <DataProperty IRI="#wartość"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
         <DataProperty IRI="#zapis"/>
         <DataProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#immediateAttribute"/>
     </SubDataPropertyOf>
@@ -481,16 +778,8 @@
         <DataProperty IRI="#zapis"/>
     </SubDataPropertyOf>
     <DataPropertyDomain>
-        <DataProperty IRI="#cena"/>
-        <Class IRI="#ZakupFilmu"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#cenaNormalny"/>
-        <Class IRI="#Bilet"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#cenaUlgowy"/>
-        <Class IRI="#Bilet"/>
+        <DataProperty IRI="#dataSprzedaży"/>
+        <Class IRI="#SprzedażBiletów"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#dubbing"/>
@@ -584,20 +873,16 @@
         <Class IRI="#Kino"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
+        <DataProperty IRI="#wartość"/>
+        <Class IRI="#Wartość"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
         <DataProperty IRI="#zapis"/>
         <Class IRI="#FragmentPrzestrzeniFonetycznej"/>
     </DataPropertyDomain>
     <DataPropertyRange>
-        <DataProperty IRI="#cena"/>
-        <Datatype abbreviatedIRI="xsd:short"/>
-    </DataPropertyRange>
-    <DataPropertyRange>
-        <DataProperty IRI="#cenaNormalny"/>
-        <Datatype abbreviatedIRI="xsd:short"/>
-    </DataPropertyRange>
-    <DataPropertyRange>
-        <DataProperty IRI="#cenaUlgowy"/>
-        <Datatype abbreviatedIRI="xsd:short"/>
+        <DataProperty IRI="#dataSprzedaży"/>
+        <Datatype abbreviatedIRI="xsd:dateTime"/>
     </DataPropertyRange>
     <DataPropertyRange>
         <DataProperty IRI="#dubbing"/>
@@ -688,12 +973,20 @@
         <Datatype abbreviatedIRI="xsd:string"/>
     </DataPropertyRange>
     <DataPropertyRange>
+        <DataProperty IRI="#wartość"/>
+        <Datatype abbreviatedIRI="xsd:short"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
         <DataProperty IRI="#zapis"/>
         <Datatype abbreviatedIRI="xsd:string"/>
     </DataPropertyRange>
     <HasKey>
         <Class IRI="#FragmentPrzestrzeniFonetycznej"/>
         <DataProperty IRI="#zapisŁaciński"/>
+    </HasKey>
+    <HasKey>
+        <Class IRI="#FragmentPrzestrzeniWartości"/>
+        <DataProperty IRI="#wartośćPLN"/>
     </HasKey>
 </Ontology>
 
