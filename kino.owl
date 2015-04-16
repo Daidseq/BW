@@ -988,6 +988,77 @@
         <Class IRI="#FragmentPrzestrzeniWartości"/>
         <DataProperty IRI="#wartośćPLN"/>
     </HasKey>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Bilet</IRI>
+        <Literal xml:lang="pl" datatypeIRI="&rdf;PlainLiteral">Klasa bilet reprezentuje pojedynczy obiekt fizyczny upoważniający do wstępu na teren sali kinowej o danej godzinie na określoną ilość czasu.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Dystrybutor</IRI>
+        <Literal xml:lang="pl" datatypeIRI="&rdf;PlainLiteral">Klasa dystrybutor reprezentuje pewną firmę zajmującą się dystybuowaniem filmów. Dystybutor jako taki nie jest obiektem fizycznym a pojęciem oznaczającym byt pozbawiony właściwości fizycznych, zrzeszający grupę ludzi koncentrujących się na jakimś celu (dystrybucji filmów). Nie mówimy więc o dystrybutorze jako o konkretnej osobie ale o organizacji.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Film</IRI>
+        <Literal xml:lang="pl" datatypeIRI="&rdf;PlainLiteral">Klasa film reprezentuje pojedynczy wytwór sztuki kinematograficznej. Nie interują nas tutaj pojedyncze kopie lub nośniki filmu ale sama treść. Ponieważ film jest zależny od pewnej fizycznej reprezentacji (taśma, płyta), a sam nie właśności fizycznych, został zakwalifikowany jako NonPhysicalEndurant.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#FragmentPrzestrzeniFonetycznej</IRI>
+        <Literal xml:lang="pl" datatypeIRI="&rdf;PlainLiteral">Klasa FragmentPrzestrzeniFonetycznej gromadzi obiekty będące regionami przestrzeni fonetycznej. Dostarczają one wartości dla własności (Quality) typu WlasnoscFonetyczna. Ten rodzaj wartości wymaga wyodrębnienia, ponieważ związane z nim dane będziemy łączyć z danymi innych systemów działających w przestrzeni globalnej za pomocą specyficznego algorytmu przekształcania, innego niż ten, który będzie przekształcał zwykłe napisy (patrz opis klasy WlasnoscTekstowa). Algorytm ten powinien poprawnie przekazywać brzmienie słów, a nie ich znaczenie (np. nazwiska Król nie powinniśmy przekształcać na King). Dlatego wartości tekstowe, które są przypisane fragmentom przestrzeni fonetycznej za pomocą atrybutów zapis, mają za zadanie reprezentować słowa w ich brzmieniu fonetycznym (warto zastanowić się nad dodaniem atrybutu typu anyURI, który wskazywałby plik mp3 z nagranym brzmieniem).
+Atrybut zapisLacinski jest kluczem dla obiektów tego typu.
+Dany fragment przestrzeni fonetycznej jest regionem, gdyż ludzki słuch toleruje dość duże różnice w brzmieniu słów, przy wciąż zachowanym stopniu zrozumiałości wypowiedzi. Na dobrą sprawę każdy człowiek wypowiada dane słowo inaczej. Dlatego brzmienie jednego słowa nie jest niepodzielnym quale, lecz właśnie regionem.
+Sama klasa FragmentPrzestrzeniFonetycznej, rozumiana jako zbiór obiektów, ma swojego przedstawiciela w postaci obiektu przestrzenFonetyczna typu QualitySpace. Jest to rozumiane w ten sposób, że każdy obiekt klasy FragmentPrzestrzeniFonetycznej musi także być połączony rolą partOf z tym przedstawicielem. Mówi o tym aksjomat ({przestrzenFonetyczna}) or (partOf some ({przestrzenFonetyczna})).
+</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#FragmentPrzestrzeniNapisów</IRI>
+        <Literal xml:lang="pl" datatypeIRI="&rdf;PlainLiteral">Dowolny zbiór napisów. Gromadzi wszystkie regiony, które są częścią przestrzeni napisów (w tym całą przestrzeń napisów oraz wszystkie pojedyncze napisy). Przestrzeń ta ma swojego przedstawiciela w postaci obiektu przestrzenNapisow typu QualitySpace. Jest to rozumiane w ten sposób, że każdy obiekt klasy FragmentPrzestrzeniNapisow musi także być połączony rolą partOf z tym przedstawicielem. Mówi o tym aksjomat równoważności tej klasy z:
+({przestrzenNapisow}) or (partOf some ({przestrzenNapisow}))
+</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Imię</IRI>
+        <Literal xml:lang="pl" datatypeIRI="&rdf;PlainLiteral">Klasa dziedzicząca od klasy WlasnoscFonetyczna, gromadząca imiona osób.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Kino</IRI>
+        <Literal xml:lang="pl" datatypeIRI="&rdf;PlainLiteral">Klasa kino reprezentuje budynek, w którym emitowane są filmy. Mówimy tu o pojedynczym obiekcie fizycznym składającym się m. in. z kas biletowych, sal kinowych, baru, toalet, itd., a nie o organizacji zarządzającej placówką czy sztuce filmowej jako takiej.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Napis</IRI>
+        <Literal xml:lang="pl" datatypeIRI="&rdf;PlainLiteral">Klasa Napis gromadzi obiekty będące napisami, rozumianymi jako zbiór liter (znaków jakiegoś pisma). Abstrahujemy tutaj od języków i znaczenia słów. Np. słowo TAK istnieje w języku polskim i w języku norweskim (po norwesku znaczy „dziękuję”). Z punktu widzenia językowego są to dwa różne słowa. Z punktu widzenia naszej przestrzeni napisów jest to jeden obiekt. Na dodatek jest to obiekt niepodzielny: napis AK nie jest częścią napisu TAK, lecz osobnym napisem. Dlatego jeden napis nie jest regionem, lecz quale.
+Klasa Napis zawiera za mało danych, aby można było na jej podstawie dokonać ich konwersji do innego systemu działającego w przestrzeni globalnej. Ma ona za zadanie dostarczyć wartości dla własności (Quality) typu WlasnoscTekstowa (patrz opis tej klasy). I to klasa WlasnoscTekstowa dostarcza pozostałych danych (np. informacji o języku).
+</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Nazwisko</IRI>
+        <Literal xml:lang="pl" datatypeIRI="&rdf;PlainLiteral">Klasa dziedzicząca od klasy WlasnoscFonetyczna, gromadząca nazwiska osób.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Pracownik</IRI>
+        <Literal xml:lang="pl" datatypeIRI="&rdf;PlainLiteral">Klasa reprezentująca pracownika kina. Interesuje nas tutaj zbiór cech fizycznych osoby pracującej w kinie oraz jej udział w procesie seansu (sprzedawanie biletów).</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Sala</IRI>
+        <Literal xml:lang="pl" datatypeIRI="&rdf;PlainLiteral">Klasa reprezetująca pomieszczenie, w którym wyświetlane są filmy mieszczące się w budynku kina.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#WłasnośćFonetyczna</IRI>
+        <Literal xml:lang="pl" datatypeIRI="&rdf;PlainLiteral">Klasa WlasnoscFonetyczna specjalizuje klasę Quality w celu ujęcia tych własności obiektów, które wiążą się z brzmieniem wypowiadanych słów. Przykładowo mogą to być nazwy własne, imiona, nazwiska.
+Wartością własności fonetycznej jest fragment przestrzeni fonetycznej, który jest jej przyporządkowany za pomocą roli maBrzmienie.
+Każdy osobnik tej klasy może być własnością tylko jednego obiektu. Na przykład jeśli dwie osoby mają nazwisko Kowalski, to tutaj także powinny istnieć dwa osobniki. Oba powinny mieć przypisany ten sam fragment przestrzeni fonetycznej, reprezentujący brzmienie nazwiska Kowalski.
+</Literal>
+    </AnnotationAssertion>
 </Ontology>
 
 
