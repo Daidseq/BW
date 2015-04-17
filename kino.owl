@@ -26,6 +26,9 @@
         <Class IRI="#Bilet"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#Bool"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#Cena"/>
     </Declaration>
     <Declaration>
@@ -38,19 +41,37 @@
         <Class IRI="#CzęśćSeansu"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#Dubbing"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#Dystrybutor"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Film"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#FragmentPrzestrzeniBoolowskiej"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#FragmentPrzestrzeniFonetycznej"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#FragmentPrzestrzeniLiczb"/>
     </Declaration>
     <Declaration>
         <Class IRI="#FragmentPrzestrzeniNapisów"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#FragmentPrzestrzeniWartości"/>
+        <Class IRI="#Ilość"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#IlośćMiejsc"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#IlośćSztukNormalny"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#IlośćSztukUlgowy"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Imię"/>
@@ -86,7 +107,13 @@
         <Class IRI="#Wartość"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#WłasnośćBoolowska"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#WłasnośćFonetyczna"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#WłasnośćIlości"/>
     </Declaration>
     <Declaration>
         <Class IRI="#WłasnośćTekstowa"/>
@@ -98,7 +125,19 @@
         <Class IRI="#ZakupFilmu"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#dystrybuował"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#emitował"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="#etapWykonany"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#kupił"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#maBool"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#maBrzmienie"/>
@@ -111,6 +150,21 @@
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#maCenęUlgową"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#maDubbing"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#maIlość"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#maIlośćMiejsc"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#maIlośćSztukNormalnych"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#maIlośćSztukUlgowych"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#maImię"/>
@@ -128,10 +182,40 @@
         <ObjectProperty IRI="#maWartość"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#nadzorował"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#obsłużył"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#posiada"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#sprzedał"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#udostępnił"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#zarządzał"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#zatrudnia"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#bool"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#data"/>
+    </Declaration>
+    <Declaration>
         <DataProperty IRI="#dataSprzedaży"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#dubbing"/>
+        <DataProperty IRI="#dataZakupu"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#dataZatrudnienia"/>
     </Declaration>
     <Declaration>
         <DataProperty IRI="#dzieńTygodnia"/>
@@ -140,13 +224,7 @@
         <DataProperty IRI="#gatunek"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#ilośćMiejsc"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#ilośćSztukNormalny"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#ilośćSztukUlgowy"/>
+        <DataProperty IRI="#ilość"/>
     </Declaration>
     <Declaration>
         <DataProperty IRI="#koszt"/>
@@ -161,7 +239,7 @@
         <DataProperty IRI="#napis"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#nazwa"/>
+        <DataProperty IRI="#numerBiletu"/>
     </Declaration>
     <Declaration>
         <DataProperty IRI="#numerBudynku"/>
@@ -170,13 +248,22 @@
         <DataProperty IRI="#numerKonta"/>
     </Declaration>
     <Declaration>
+        <DataProperty IRI="#numerPracownika"/>
+    </Declaration>
+    <Declaration>
         <DataProperty IRI="#numerSali"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#numerSaliSeans"/>
     </Declaration>
     <Declaration>
         <DataProperty IRI="#numerSeansu"/>
     </Declaration>
     <Declaration>
         <DataProperty IRI="#numerSprzedaży"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#numerZakupu"/>
     </Declaration>
     <Declaration>
         <DataProperty IRI="#producent"/>
@@ -227,14 +314,31 @@
         <DataProperty IRI="#zapisŁaciński"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#przestrzeńBoolowska"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#przestrzeńFonetyczna"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#przestrzeńLiczb"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#przestrzeńNapisów"/>
     </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#przestrzeńWartości"/>
-    </Declaration>
+    <EquivalentClasses>
+        <Class IRI="#FragmentPrzestrzeniBoolowskiej"/>
+        <ObjectUnionOf>
+            <ObjectOneOf>
+                <NamedIndividual IRI="#przestrzeńBoolowska"/>
+            </ObjectOneOf>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#partOf"/>
+                <ObjectOneOf>
+                    <NamedIndividual IRI="#przestrzeńBoolowska"/>
+                </ObjectOneOf>
+            </ObjectSomeValuesFrom>
+        </ObjectUnionOf>
+    </EquivalentClasses>
     <EquivalentClasses>
         <Class IRI="#FragmentPrzestrzeniFonetycznej"/>
         <ObjectUnionOf>
@@ -250,6 +354,20 @@
         </ObjectUnionOf>
     </EquivalentClasses>
     <EquivalentClasses>
+        <Class IRI="#FragmentPrzestrzeniLiczb"/>
+        <ObjectUnionOf>
+            <ObjectOneOf>
+                <NamedIndividual IRI="#przestrzeńLiczb"/>
+            </ObjectOneOf>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#partOf"/>
+                <ObjectOneOf>
+                    <NamedIndividual IRI="#przestrzeńLiczb"/>
+                </ObjectOneOf>
+            </ObjectSomeValuesFrom>
+        </ObjectUnionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
         <Class IRI="#FragmentPrzestrzeniNapisów"/>
         <ObjectUnionOf>
             <ObjectOneOf>
@@ -259,20 +377,6 @@
                 <ObjectProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#partOf"/>
                 <ObjectOneOf>
                     <NamedIndividual IRI="#przestrzeńNapisów"/>
-                </ObjectOneOf>
-            </ObjectSomeValuesFrom>
-        </ObjectUnionOf>
-    </EquivalentClasses>
-    <EquivalentClasses>
-        <Class IRI="#FragmentPrzestrzeniWartości"/>
-        <ObjectUnionOf>
-            <ObjectOneOf>
-                <NamedIndividual IRI="#przestrzeńWartości"/>
-            </ObjectOneOf>
-            <ObjectSomeValuesFrom>
-                <ObjectProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#partOf"/>
-                <ObjectOneOf>
-                    <NamedIndividual IRI="#przestrzeńWartości"/>
                 </ObjectOneOf>
             </ObjectSomeValuesFrom>
         </ObjectUnionOf>
@@ -296,16 +400,41 @@
         </ObjectExactCardinality>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="#Bilet"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#maDubbing"/>
+            <Class IRI="#Dubbing"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Bilet"/>
+        <DataExactCardinality cardinality="1">
+            <DataProperty IRI="#dzieńTygodnia"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Bilet"/>
+        <DataExactCardinality cardinality="1">
+            <DataProperty IRI="#technologia"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Bool"/>
+        <Class IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#Quale"/>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#Cena"/>
         <Class IRI="#WłasnośćWartości"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#CenaNormalny"/>
-        <Class IRI="#WłasnośćWartości"/>
+        <Class IRI="#Cena"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#CenaUlgowy"/>
-        <Class IRI="#WłasnośćWartości"/>
+        <Class IRI="#Cena"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#CzęśćSeansu"/>
@@ -319,6 +448,10 @@
             </ObjectInverseOf>
             <Class IRI="#Seans"/>
         </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Dubbing"/>
+        <Class IRI="#WłasnośćBoolowska"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Dystrybutor"/>
@@ -336,6 +469,45 @@
         <Class IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#NonPhysicalEndurant"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="#Film"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#gatunek"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Film"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#producent"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Film"/>
+        <DataExactCardinality cardinality="1">
+            <DataProperty IRI="#reżyser"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Film"/>
+        <DataExactCardinality cardinality="1">
+            <DataProperty IRI="#rokWydania"/>
+            <Datatype abbreviatedIRI="xsd:short"/>
+        </DataExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#FragmentPrzestrzeniBoolowskiej"/>
+        <Class IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#Region"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#FragmentPrzestrzeniBoolowskiej"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#bool"/>
+            <Datatype abbreviatedIRI="xsd:boolean"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#FragmentPrzestrzeniFonetycznej"/>
         <Class IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#Region"/>
     </SubClassOf>
@@ -344,6 +516,24 @@
         <DataSomeValuesFrom>
             <DataProperty IRI="#zapis"/>
             <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#FragmentPrzestrzeniLiczb"/>
+        <Class IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#Region"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#FragmentPrzestrzeniLiczb"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#ilość"/>
+            <Datatype abbreviatedIRI="xsd:short"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#FragmentPrzestrzeniLiczb"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#wartość"/>
+            <Datatype abbreviatedIRI="xsd:short"/>
         </DataSomeValuesFrom>
     </SubClassOf>
     <SubClassOf>
@@ -358,27 +548,20 @@
         </DataSomeValuesFrom>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#FragmentPrzestrzeniWartości"/>
-        <Class IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#Region"/>
+        <Class IRI="#Ilość"/>
+        <Class IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#Quale"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#FragmentPrzestrzeniWartości"/>
-        <DataSomeValuesFrom>
-            <DataProperty IRI="#wartość"/>
-            <Datatype abbreviatedIRI="xsd:short"/>
-        </DataSomeValuesFrom>
+        <Class IRI="#IlośćMiejsc"/>
+        <Class IRI="#WłasnośćIlości"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#FragmentPrzestrzeniWartości"/>
-        <DataAllValuesFrom>
-            <DataProperty IRI="#wartość"/>
-            <DatatypeRestriction>
-                <Datatype abbreviatedIRI="xsd:decimal"/>
-                <FacetRestriction facet="&xsd;minExclusive">
-                    <Literal datatypeIRI="&xsd;integer">0</Literal>
-                </FacetRestriction>
-            </DatatypeRestriction>
-        </DataAllValuesFrom>
+        <Class IRI="#IlośćSztukNormalny"/>
+        <Class IRI="#WłasnośćIlości"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#IlośćSztukUlgowy"/>
+        <Class IRI="#WłasnośćIlości"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Imię"/>
@@ -387,6 +570,48 @@
     <SubClassOf>
         <Class IRI="#Kino"/>
         <Class IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#PhysicalObject"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Kino"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#posiada"/>
+            <Class IRI="#Sala"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Kino"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#zatrudnia"/>
+            <Class IRI="#Pracownik"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Kino"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#maNazwę"/>
+            <Class IRI="#Nazwa"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Kino"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#miasto"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Kino"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#numerBudynku"/>
+            <Datatype abbreviatedIRI="xsd:short"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Kino"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#ulica"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Napis"/>
@@ -419,12 +644,54 @@
         </ObjectExactCardinality>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="#Pracownik"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#dataZatrudnienia"/>
+            <Datatype abbreviatedIRI="xsd:dateTime"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#ProjekcjaFilmu"/>
         <Class IRI="#CzęśćSeansu"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="#ProjekcjaFilmu"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#emitował"/>
+            <Class IRI="#Film"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ProjekcjaFilmu"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#zarządzał"/>
+            <Class IRI="#Pracownik"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ProjekcjaFilmu"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#data"/>
+            <Datatype abbreviatedIRI="xsd:dateTime"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ProjekcjaFilmu"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#numerSaliSeans"/>
+            <Datatype abbreviatedIRI="xsd:short"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#Sala"/>
         <Class IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#PhysicalObject"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Sala"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#maIlośćMiejsc"/>
+            <Class IRI="#IlośćMiejsc"/>
+        </ObjectSomeValuesFrom>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Seans"/>
@@ -432,10 +699,10 @@
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Seans"/>
-        <ObjectExactCardinality cardinality="1">
-            <ObjectProperty IRI="#etapWykonany"/>
-            <Class IRI="#ProjekcjaFilmu"/>
-        </ObjectExactCardinality>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#udostępnił"/>
+            <Class IRI="#Kino"/>
+        </ObjectSomeValuesFrom>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Seans"/>
@@ -445,8 +712,50 @@
         </ObjectExactCardinality>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="#Seans"/>
+        <ObjectMaxCardinality cardinality="1">
+            <ObjectProperty IRI="#etapWykonany"/>
+            <Class IRI="#ProjekcjaFilmu"/>
+        </ObjectMaxCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Seans"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#koszt"/>
+            <Datatype abbreviatedIRI="xsd:short"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#SprzedażBiletów"/>
         <Class IRI="#CzęśćSeansu"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SprzedażBiletów"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#maIlośćSztukNormalnych"/>
+            <Class IRI="#IlośćSztukNormalny"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SprzedażBiletów"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#maIlośćSztukUlgowych"/>
+            <Class IRI="#IlośćSztukUlgowy"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SprzedażBiletów"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#obsłużył"/>
+            <Class IRI="#Pracownik"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SprzedażBiletów"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#sprzedał"/>
+            <Class IRI="#Bilet"/>
+        </ObjectSomeValuesFrom>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#SprzedażBiletów"/>
@@ -460,6 +769,17 @@
         <Class IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#Quale"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="#WłasnośćBoolowska"/>
+        <Class IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#Quality"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#WłasnośćBoolowska"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#maBool"/>
+            <Class IRI="#Bool"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#WłasnośćFonetyczna"/>
         <Class IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#Quality"/>
     </SubClassOf>
@@ -469,6 +789,17 @@
             <ObjectProperty IRI="#maBrzmienie"/>
             <Class IRI="#FragmentPrzestrzeniFonetycznej"/>
         </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#WłasnośćIlości"/>
+        <Class IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#Quality"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#WłasnośćIlości"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#maIlość"/>
+            <Class IRI="#Ilość"/>
+        </ObjectSomeValuesFrom>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#WłasnośćTekstowa"/>
@@ -499,25 +830,73 @@
     <SubClassOf>
         <Class IRI="#ZakupFilmu"/>
         <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#dystrybuował"/>
+            <Class IRI="#Dystrybutor"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ZakupFilmu"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#kupił"/>
+            <Class IRI="#Film"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ZakupFilmu"/>
+        <ObjectExactCardinality cardinality="1">
             <ObjectProperty IRI="#maCenę"/>
             <Class IRI="#Cena"/>
         </ObjectExactCardinality>
     </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ZakupFilmu"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#nadzorował"/>
+            <Class IRI="#Pracownik"/>
+        </ObjectExactCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ZakupFilmu"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#dataZakupu"/>
+            <Datatype abbreviatedIRI="xsd:short"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <ClassAssertion>
+        <Class IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#QualitySpace"/>
+        <NamedIndividual IRI="#przestrzeńBoolowska"/>
+    </ClassAssertion>
     <ClassAssertion>
         <Class IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#QualitySpace"/>
         <NamedIndividual IRI="#przestrzeńFonetyczna"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#QualitySpace"/>
-        <NamedIndividual IRI="#przestrzeńNapisów"/>
+        <NamedIndividual IRI="#przestrzeńLiczb"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#QualitySpace"/>
-        <NamedIndividual IRI="#przestrzeńWartości"/>
+        <NamedIndividual IRI="#przestrzeńNapisów"/>
     </ClassAssertion>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#dystrybuował"/>
+        <ObjectProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#participant"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#emitował"/>
+        <ObjectProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#participant"/>
+    </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#etapWykonany"/>
         <ObjectProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#part"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#kupił"/>
+        <ObjectProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#participant"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#maBool"/>
+        <ObjectProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#hasQuale"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#maBrzmienie"/>
@@ -534,6 +913,26 @@
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#maCenęUlgową"/>
         <ObjectProperty IRI="#maCenę"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#maDubbing"/>
+        <ObjectProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#hasQuality"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#maIlość"/>
+        <ObjectProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#hasQuale"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#maIlośćMiejsc"/>
+        <ObjectProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#hasQuality"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#maIlośćSztukNormalnych"/>
+        <ObjectProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#hasQuality"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#maIlośćSztukUlgowych"/>
+        <ObjectProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#hasQuality"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#maImię"/>
@@ -555,9 +954,53 @@
         <ObjectProperty IRI="#maWartość"/>
         <ObjectProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#hasQuale"/>
     </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#nadzorował"/>
+        <ObjectProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#participant"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#obsłużył"/>
+        <ObjectProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#participant"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#posiada"/>
+        <ObjectProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#part"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#sprzedał"/>
+        <ObjectProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#participant"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#udostępnił"/>
+        <ObjectProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#participant"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#zarządzał"/>
+        <ObjectProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#participant"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#zatrudnia"/>
+        <ObjectProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#partlyCompresent"/>
+    </SubObjectPropertyOf>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#dystrybuował"/>
+        <Class IRI="#ZakupFilmu"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#emitował"/>
+        <Class IRI="#ProjekcjaFilmu"/>
+    </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#etapWykonany"/>
         <Class IRI="#Seans"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#kupił"/>
+        <Class IRI="#ZakupFilmu"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#maBool"/>
+        <Class IRI="#WłasnośćBoolowska"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#maBrzmienie"/>
@@ -577,6 +1020,26 @@
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#maCenęUlgową"/>
         <Class IRI="#Bilet"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#maDubbing"/>
+        <Class IRI="#Bilet"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#maIlość"/>
+        <Class IRI="#WłasnośćIlości"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#maIlośćMiejsc"/>
+        <Class IRI="#Sala"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#maIlośćSztukNormalnych"/>
+        <Class IRI="#SprzedażBiletów"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#maIlośćSztukUlgowych"/>
+        <Class IRI="#SprzedażBiletów"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#maImię"/>
@@ -601,9 +1064,53 @@
         <ObjectProperty IRI="#maWartość"/>
         <Class IRI="#WłasnośćWartości"/>
     </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#nadzorował"/>
+        <Class IRI="#ZakupFilmu"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#obsłużył"/>
+        <Class IRI="#SprzedażBiletów"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#posiada"/>
+        <Class IRI="#Kino"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#sprzedał"/>
+        <Class IRI="#SprzedażBiletów"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#udostępnił"/>
+        <Class IRI="#Seans"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#zarządzał"/>
+        <Class IRI="#ProjekcjaFilmu"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#zatrudnia"/>
+        <Class IRI="#Kino"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#dystrybuował"/>
+        <Class IRI="#Dystrybutor"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#emitował"/>
+        <Class IRI="#Film"/>
+    </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#etapWykonany"/>
         <Class IRI="#CzęśćSeansu"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#kupił"/>
+        <Class IRI="#Film"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#maBool"/>
+        <Class IRI="#Bool"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#maBrzmienie"/>
@@ -626,6 +1133,26 @@
         <Class IRI="#CenaUlgowy"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
+        <ObjectProperty IRI="#maDubbing"/>
+        <Class IRI="#Dubbing"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#maIlość"/>
+        <Class IRI="#Ilość"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#maIlośćMiejsc"/>
+        <Class IRI="#IlośćMiejsc"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#maIlośćSztukNormalnych"/>
+        <Class IRI="#IlośćSztukNormalny"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#maIlośćSztukUlgowych"/>
+        <Class IRI="#IlośćSztukUlgowy"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
         <ObjectProperty IRI="#maImię"/>
         <Class IRI="#Imię"/>
     </ObjectPropertyRange>
@@ -645,12 +1172,52 @@
         <ObjectProperty IRI="#maWartość"/>
         <Class IRI="#Wartość"/>
     </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#nadzorował"/>
+        <Class IRI="#Pracownik"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#obsłużył"/>
+        <Class IRI="#Pracownik"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#posiada"/>
+        <Class IRI="#Sala"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#sprzedał"/>
+        <Class IRI="#Bilet"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#udostępnił"/>
+        <Class IRI="#Kino"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#zarządzał"/>
+        <Class IRI="#Pracownik"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#zatrudnia"/>
+        <Class IRI="#Pracownik"/>
+    </ObjectPropertyRange>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#bool"/>
+        <DataProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#immediateAttribute"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#data"/>
+        <DataProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#mediatedAttribute"/>
+    </SubDataPropertyOf>
     <SubDataPropertyOf>
         <DataProperty IRI="#dataSprzedaży"/>
         <DataProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#mediatedAttribute"/>
     </SubDataPropertyOf>
     <SubDataPropertyOf>
-        <DataProperty IRI="#dubbing"/>
+        <DataProperty IRI="#dataZakupu"/>
+        <DataProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#mediatedAttribute"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#dataZatrudnienia"/>
         <DataProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#mediatedAttribute"/>
     </SubDataPropertyOf>
     <SubDataPropertyOf>
@@ -662,16 +1229,8 @@
         <DataProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#mediatedAttribute"/>
     </SubDataPropertyOf>
     <SubDataPropertyOf>
-        <DataProperty IRI="#ilośćMiejsc"/>
-        <DataProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#mediatedAttribute"/>
-    </SubDataPropertyOf>
-    <SubDataPropertyOf>
-        <DataProperty IRI="#ilośćSztukNormalny"/>
-        <DataProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#mediatedAttribute"/>
-    </SubDataPropertyOf>
-    <SubDataPropertyOf>
-        <DataProperty IRI="#ilośćSztukUlgowy"/>
-        <DataProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#mediatedAttribute"/>
+        <DataProperty IRI="#ilość"/>
+        <DataProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#immediateAttribute"/>
     </SubDataPropertyOf>
     <SubDataPropertyOf>
         <DataProperty IRI="#koszt"/>
@@ -690,7 +1249,7 @@
         <DataProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#immediateAttribute"/>
     </SubDataPropertyOf>
     <SubDataPropertyOf>
-        <DataProperty IRI="#nazwa"/>
+        <DataProperty IRI="#numerBiletu"/>
         <DataProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#mediatedAttribute"/>
     </SubDataPropertyOf>
     <SubDataPropertyOf>
@@ -702,7 +1261,15 @@
         <DataProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#mediatedAttribute"/>
     </SubDataPropertyOf>
     <SubDataPropertyOf>
+        <DataProperty IRI="#numerPracownika"/>
+        <DataProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#mediatedAttribute"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
         <DataProperty IRI="#numerSali"/>
+        <DataProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#mediatedAttribute"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#numerSaliSeans"/>
         <DataProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#mediatedAttribute"/>
     </SubDataPropertyOf>
     <SubDataPropertyOf>
@@ -711,6 +1278,10 @@
     </SubDataPropertyOf>
     <SubDataPropertyOf>
         <DataProperty IRI="#numerSprzedaży"/>
+        <DataProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#mediatedAttribute"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#numerZakupu"/>
         <DataProperty IRI="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#mediatedAttribute"/>
     </SubDataPropertyOf>
     <SubDataPropertyOf>
@@ -778,12 +1349,24 @@
         <DataProperty IRI="#zapis"/>
     </SubDataPropertyOf>
     <DataPropertyDomain>
+        <DataProperty IRI="#bool"/>
+        <Class IRI="#Bool"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#data"/>
+        <Class IRI="#ProjekcjaFilmu"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
         <DataProperty IRI="#dataSprzedaży"/>
         <Class IRI="#SprzedażBiletów"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
-        <DataProperty IRI="#dubbing"/>
-        <Class IRI="#Bilet"/>
+        <DataProperty IRI="#dataZakupu"/>
+        <Class IRI="#ZakupFilmu"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#dataZatrudnienia"/>
+        <Class IRI="#Pracownik"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#dzieńTygodnia"/>
@@ -794,16 +1377,8 @@
         <Class IRI="#Film"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
-        <DataProperty IRI="#ilośćMiejsc"/>
-        <Class IRI="#Sala"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#ilośćSztukNormalny"/>
-        <Class IRI="#SprzedażBiletów"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#ilośćSztukUlgowy"/>
-        <Class IRI="#SprzedażBiletów"/>
+        <DataProperty IRI="#ilość"/>
+        <Class IRI="#Ilość"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#koszt"/>
@@ -822,11 +1397,8 @@
         <Class IRI="#Napis"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
-        <DataProperty IRI="#nazwa"/>
-        <ObjectUnionOf>
-            <Class IRI="#Dystrybutor"/>
-            <Class IRI="#Kino"/>
-        </ObjectUnionOf>
+        <DataProperty IRI="#numerBiletu"/>
+        <Class IRI="#Bilet"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#numerBudynku"/>
@@ -837,8 +1409,16 @@
         <Class IRI="#Dystrybutor"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
+        <DataProperty IRI="#numerPracownika"/>
+        <Class IRI="#Pracownik"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
         <DataProperty IRI="#numerSali"/>
         <Class IRI="#Sala"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#numerSaliSeans"/>
+        <Class IRI="#ProjekcjaFilmu"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#numerSeansu"/>
@@ -847,6 +1427,10 @@
     <DataPropertyDomain>
         <DataProperty IRI="#numerSprzedaży"/>
         <Class IRI="#SprzedażBiletów"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#numerZakupu"/>
+        <Class IRI="#ZakupFilmu"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#producent"/>
@@ -881,12 +1465,24 @@
         <Class IRI="#FragmentPrzestrzeniFonetycznej"/>
     </DataPropertyDomain>
     <DataPropertyRange>
+        <DataProperty IRI="#bool"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#data"/>
+        <Datatype abbreviatedIRI="xsd:dateTime"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
         <DataProperty IRI="#dataSprzedaży"/>
         <Datatype abbreviatedIRI="xsd:dateTime"/>
     </DataPropertyRange>
     <DataPropertyRange>
-        <DataProperty IRI="#dubbing"/>
-        <Datatype abbreviatedIRI="xsd:string"/>
+        <DataProperty IRI="#dataZakupu"/>
+        <Datatype abbreviatedIRI="xsd:short"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#dataZatrudnienia"/>
+        <Datatype abbreviatedIRI="xsd:dateTime"/>
     </DataPropertyRange>
     <DataPropertyRange>
         <DataProperty IRI="#dzieńTygodnia"/>
@@ -897,15 +1493,7 @@
         <Datatype abbreviatedIRI="xsd:string"/>
     </DataPropertyRange>
     <DataPropertyRange>
-        <DataProperty IRI="#ilośćMiejsc"/>
-        <Datatype abbreviatedIRI="xsd:short"/>
-    </DataPropertyRange>
-    <DataPropertyRange>
-        <DataProperty IRI="#ilośćSztukNormalny"/>
-        <Datatype abbreviatedIRI="xsd:short"/>
-    </DataPropertyRange>
-    <DataPropertyRange>
-        <DataProperty IRI="#ilośćSztukUlgowy"/>
+        <DataProperty IRI="#ilość"/>
         <Datatype abbreviatedIRI="xsd:short"/>
     </DataPropertyRange>
     <DataPropertyRange>
@@ -925,8 +1513,8 @@
         <Datatype abbreviatedIRI="xsd:string"/>
     </DataPropertyRange>
     <DataPropertyRange>
-        <DataProperty IRI="#nazwa"/>
-        <Datatype abbreviatedIRI="xsd:string"/>
+        <DataProperty IRI="#numerBiletu"/>
+        <Datatype abbreviatedIRI="xsd:short"/>
     </DataPropertyRange>
     <DataPropertyRange>
         <DataProperty IRI="#numerBudynku"/>
@@ -937,7 +1525,15 @@
         <Datatype abbreviatedIRI="xsd:string"/>
     </DataPropertyRange>
     <DataPropertyRange>
+        <DataProperty IRI="#numerPracownika"/>
+        <Datatype abbreviatedIRI="xsd:short"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
         <DataProperty IRI="#numerSali"/>
+        <Datatype abbreviatedIRI="xsd:short"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#numerSaliSeans"/>
         <Datatype abbreviatedIRI="xsd:short"/>
     </DataPropertyRange>
     <DataPropertyRange>
@@ -946,6 +1542,10 @@
     </DataPropertyRange>
     <DataPropertyRange>
         <DataProperty IRI="#numerSprzedaży"/>
+        <Datatype abbreviatedIRI="xsd:short"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#numerZakupu"/>
         <Datatype abbreviatedIRI="xsd:short"/>
     </DataPropertyRange>
     <DataPropertyRange>
@@ -981,17 +1581,64 @@
         <Datatype abbreviatedIRI="xsd:string"/>
     </DataPropertyRange>
     <HasKey>
+        <Class IRI="#Bilet"/>
+        <DataProperty IRI="#numerBiletu"/>
+    </HasKey>
+    <HasKey>
         <Class IRI="#FragmentPrzestrzeniFonetycznej"/>
         <DataProperty IRI="#zapisŁaciński"/>
     </HasKey>
     <HasKey>
-        <Class IRI="#FragmentPrzestrzeniWartości"/>
+        <Class IRI="#FragmentPrzestrzeniLiczb"/>
         <DataProperty IRI="#wartośćPLN"/>
+    </HasKey>
+    <HasKey>
+        <Class IRI="#Pracownik"/>
+        <DataProperty IRI="#numerPracownika"/>
+    </HasKey>
+    <HasKey>
+        <Class IRI="#Sala"/>
+        <DataProperty IRI="#numerSali"/>
+    </HasKey>
+    <HasKey>
+        <Class IRI="#Seans"/>
+        <DataProperty IRI="#numerSeansu"/>
+    </HasKey>
+    <HasKey>
+        <Class IRI="#ZakupFilmu"/>
+        <DataProperty IRI="#numerZakupu"/>
     </HasKey>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#Bilet</IRI>
-        <Literal xml:lang="pl" datatypeIRI="&rdf;PlainLiteral">Klasa bilet reprezentuje pojedynczy obiekt fizyczny upoważniający do wstępu na teren sali kinowej o danej godzinie na określoną ilość czasu.</Literal>
+        <Literal xml:lang="pl" datatypeIRI="&rdf;PlainLiteral">Klasa bilet reprezentuje pojedynczy obiekt fizyczny upoważniający do wstępu na teren sali kinowej o danej godzinie na określoną ilość czasu.
+
+Atrybut NrBiletu jest atrybutem kluczowym dla tej klasy. Definiujemy to w ten sposób, że wstawiamy ten atrybut  do sekcji Target for Key (zakładka Classes)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Cena</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Do tej klasy muszą należeć obiekty reprezentujące atrybut Cena. </Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#CenaNormalny</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Gromadzi Ceny Normalne.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#CenaUlgowy</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Gromadzi Ceny Ulgowe.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#CzęśćSeansu</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Klasa ma na celu wyodrębnienie klas zdarzeń, które są częściami składowymi procesu Seansu. Jej istnienie ułatwia zdefiniowanie roli etapWykonany.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Dubbing</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Klasa dziedzicząca od WłasnośćBoolowska, gromadząca atrybuty dubbingu.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -1005,19 +1652,49 @@
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#FragmentPrzestrzeniBoolowskiej</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Klasa FragmentPrzestrzeniFonetycznej gromadzi obiekty będące regionami przestrzeni boolowskiej. Dostarczają one wartości dla własności (Quality) typu WlasnoscBoolowska.
+
+Przestrzeń ta ma swojego przedstawiciela w postaci obiektu przestrzenBoolowska typu QualitySpace. Jest to rozumiane w ten sposób, że każdy obiekt klasy FragmentPrzestrzeniBoolowskiej musi także być połączony rolą partOf z tym przedstawicielem. Mówi o tym aksjomat równoważności tej klasy z:
+({przestrzeńBoolowska}) or (partOf some ({przestrzeńBoolowska}))</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#FragmentPrzestrzeniFonetycznej</IRI>
         <Literal xml:lang="pl" datatypeIRI="&rdf;PlainLiteral">Klasa FragmentPrzestrzeniFonetycznej gromadzi obiekty będące regionami przestrzeni fonetycznej. Dostarczają one wartości dla własności (Quality) typu WlasnoscFonetyczna. Ten rodzaj wartości wymaga wyodrębnienia, ponieważ związane z nim dane będziemy łączyć z danymi innych systemów działających w przestrzeni globalnej za pomocą specyficznego algorytmu przekształcania, innego niż ten, który będzie przekształcał zwykłe napisy (patrz opis klasy WlasnoscTekstowa). Algorytm ten powinien poprawnie przekazywać brzmienie słów, a nie ich znaczenie (np. nazwiska Król nie powinniśmy przekształcać na King). Dlatego wartości tekstowe, które są przypisane fragmentom przestrzeni fonetycznej za pomocą atrybutów zapis, mają za zadanie reprezentować słowa w ich brzmieniu fonetycznym (warto zastanowić się nad dodaniem atrybutu typu anyURI, który wskazywałby plik mp3 z nagranym brzmieniem).
 Atrybut zapisLacinski jest kluczem dla obiektów tego typu.
 Dany fragment przestrzeni fonetycznej jest regionem, gdyż ludzki słuch toleruje dość duże różnice w brzmieniu słów, przy wciąż zachowanym stopniu zrozumiałości wypowiedzi. Na dobrą sprawę każdy człowiek wypowiada dane słowo inaczej. Dlatego brzmienie jednego słowa nie jest niepodzielnym quale, lecz właśnie regionem.
-Sama klasa FragmentPrzestrzeniFonetycznej, rozumiana jako zbiór obiektów, ma swojego przedstawiciela w postaci obiektu przestrzenFonetyczna typu QualitySpace. Jest to rozumiane w ten sposób, że każdy obiekt klasy FragmentPrzestrzeniFonetycznej musi także być połączony rolą partOf z tym przedstawicielem. Mówi o tym aksjomat ({przestrzenFonetyczna}) or (partOf some ({przestrzenFonetyczna})).
+Sama klasa FragmentPrzestrzeniFonetycznej, rozumiana jako zbiór obiektów, ma swojego przedstawiciela w postaci obiektu przestrzenFonetyczna typu QualitySpace. Jest to rozumiane w ten sposób, że każdy obiekt klasy FragmentPrzestrzeniFonetycznej musi także być połączony rolą partOf z tym przedstawicielem. Mówi o tym aksjomat ({przestrzeńFonetyczna}) or (partOf some ({przestrzeńFonetyczna})).
+</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#FragmentPrzestrzeniLiczb</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Dowolny zbiór liczb. Gromadzi wszystkie regiony, które są częścią przestrzeni liczb (w tym całą przestrzeń liczb oraz wszystkie pojedyncze liczby). Przestrzeń ta ma swojego przedstawiciela w postaci obiektu przestrzenLiczb typu QualitySpace. Jest to rozumiane w ten sposób, że każdy obiekt klasy FragmentPrzestrzeniLiczb musi także być połączony rolą partOf z tym przedstawicielem. Mówi o tym aksjomat równoważności tej klasy z:
+({przestrzeńLiczb}) or (partOf some ({przestrzeńLiczb}))
 </Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#FragmentPrzestrzeniNapisów</IRI>
-        <Literal xml:lang="pl" datatypeIRI="&rdf;PlainLiteral">Dowolny zbiór napisów. Gromadzi wszystkie regiony, które są częścią przestrzeni napisów (w tym całą przestrzeń napisów oraz wszystkie pojedyncze napisy). Przestrzeń ta ma swojego przedstawiciela w postaci obiektu przestrzenNapisow typu QualitySpace. Jest to rozumiane w ten sposób, że każdy obiekt klasy FragmentPrzestrzeniNapisow musi także być połączony rolą partOf z tym przedstawicielem. Mówi o tym aksjomat równoważności tej klasy z:
-({przestrzenNapisow}) or (partOf some ({przestrzenNapisow}))
+        <Literal xml:lang="pl" datatypeIRI="&rdf;PlainLiteral">Dowolny zbiór napisów. Gromadzi wszystkie regiony, które są częścią przestrzeni napisów (w tym całą przestrzeń napisów oraz wszystkie pojedyncze napisy). Przestrzeń ta ma swojego przedstawiciela w postaci obiektu przestrzeńNapisów typu QualitySpace. Jest to rozumiane w ten sposób, że każdy obiekt klasy FragmentPrzestrzeniNapisów musi także być połączony rolą partOf z tym przedstawicielem. Mówi o tym aksjomat równoważności tej klasy z:
+({przestrzeńNapisów}) or (partOf some ({przestrzeńNapisów}))
 </Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#IlośćMiejsc</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Gromadzi ilość miejsc.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#IlośćSztukNormalny</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Gromadzi IlośćSztukNormalny.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#IlośćSztukUlgowy</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Gromadzi IlośćSztukUlgowy.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -1038,18 +1715,53 @@ Klasa Napis zawiera za mało danych, aby można było na jej podstawie dokonać 
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Nazwa</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Do klasy tej muszą należeć obiekty reprezentujące atrybut Nazwa kina, dystrybutora. Klasa ta musi mieć wspólne części z klasami reprezentującymi własności tekstowe w tych językach (np. WlasnoscTekstowaPoAngielsku, WlasnoscTekstowaPoPolsku), w których chcemy wyrażać nazwy kina lub dystrybutora.
+Jest to tylko jedna z własności tekstowych, które możemy tu umieścić, gdyby projekt miał ulec rozszerzeniu.
+</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#Nazwisko</IRI>
         <Literal xml:lang="pl" datatypeIRI="&rdf;PlainLiteral">Klasa dziedzicząca od klasy WlasnoscFonetyczna, gromadząca nazwiska osób.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#Pracownik</IRI>
-        <Literal xml:lang="pl" datatypeIRI="&rdf;PlainLiteral">Klasa reprezentująca pracownika kina. Interesuje nas tutaj zbiór cech fizycznych osoby pracującej w kinie oraz jej udział w procesie seansu (sprzedawanie biletów).</Literal>
+        <Literal xml:lang="pl" datatypeIRI="&rdf;PlainLiteral">Klasa reprezentująca pracownika kina. Interesuje nas tutaj zbiór cech fizycznych osoby pracującej w kinie oraz jej udział w procesie seansu (sprzedawanie biletów).
+Atrybut NrPracownika jest atrybutem kluczowym dla tej klasy. Definiujemy to w ten sposób, że wstawiamy ten atrybut  do sekcji Target for Key (zakładka Classes)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#ProjekcjaFilmu</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Zdarzenie kończące proces seansu. Polega na wyemitowaniu Filmu dla klientów, którzy zakupili bilety. Pracownik, Film są przypisane za pomocą roli zarządzał/emitował.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#Sala</IRI>
-        <Literal xml:lang="pl" datatypeIRI="&rdf;PlainLiteral">Klasa reprezetująca pomieszczenie, w którym wyświetlane są filmy mieszczące się w budynku kina.</Literal>
+        <Literal xml:lang="pl" datatypeIRI="&rdf;PlainLiteral">Klasa reprezetująca pomieszczenie, w którym wyświetlane są filmy mieszczące się w budynku kina.
+
+Atrybut NrSali jest atrybutem kluczowym dla tej klasy. Definiujemy to w ten sposób, że wstawiamy ten atrybut  do sekcji Target for Key (zakładka Classes)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Seans</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Seans jest rozumiany tutaj jako proces rozciągnięty w czasie, posiadający kilka etapów. W seansie bierze udział wielu uczestników. Seans musi posiadać dokładnie jedno zdarzenie sprzedaży biletów oraz co najwyżej jedną wyemitowaną projekcje filmu. Seans odbywa się w kinie, rola udostępnił. Ma też atrybut koszt. W sekcji Target for Key przypisany jest klucz, pozwalający na unikalne zidentyfikowanie obiektu.  
+
+Atrybut NrSeansu jest atrybutem kluczowym dla tej klasy. Definiujemy to w ten sposób, że wstawiamy ten atrybut  do sekcji Target for Key (zakładka Classes)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#SprzedażBiletów</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Zdarzenie polegające na uiszczeniu zapłaty przez naszych klientów. Zapłatę może przyjąć wielu pracowników, zdefiniowanych za pomocą roli obsłużył. Bilet,IlośćSztukNormalnych,IlośćSztukUlgowych są zdefiniowane przez rolę sprzedał/maIlośćSztukNormalnych/maIlośćSztukUlgowych.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#WłasnośćBoolowska</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Klasa WłasnośćBoolowska specjalizuję klasę Quality w celu ujęcia tych własności obiektów, które wiążą się z wartością true albo false danych atrybutów. 
+
+Każdy osobnik tej klasy może być własnością tylko jednego obiektu. Na przykład jeśli dwa osobniki mają attrybut true, to tutaj także powinny istnieć dwa osobniki. Oba powinny mieć przypisany ten sam fragment przestrzeni boolowskiej, reprezentujący wartość true.
+</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -1058,6 +1770,92 @@ Klasa Napis zawiera za mało danych, aby można było na jej podstawie dokonać 
 Wartością własności fonetycznej jest fragment przestrzeni fonetycznej, który jest jej przyporządkowany za pomocą roli maBrzmienie.
 Każdy osobnik tej klasy może być własnością tylko jednego obiektu. Na przykład jeśli dwie osoby mają nazwisko Kowalski, to tutaj także powinny istnieć dwa osobniki. Oba powinny mieć przypisany ten sam fragment przestrzeni fonetycznej, reprezentujący brzmienie nazwiska Kowalski.
 </Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#WłasnośćIlości</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Klasa WlasnośćIlości specjalizuje klasę Quality w celu ujęcia własności ilościowych obiektów. Przykładowo może to być ilość miejsc na sali kinowej.
+Wartością własności tekstowej jest ilość, fragment przestrzeni liczb, który jest jej przyporządkowany za pomocą roli maIlość.
+Każdy osobnik tej klasy może być własnością tylko jednego obiektu. Na przykład jeśli dwa produkty mają ilość np. &quot;10&quot;, to tutaj także powinny istnieć dwa osobniki. Oba powinny mieć przypisany tą samą ilość w przestrzeni ilości.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#WłasnośćTekstowa</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Klasa WlasnoscTekstowa specjalizuje klasę Quality w celu ujęcia własności tekstowych obiektów. Przykładowo może to być nazwa towaru.
+Wartością własności tekstowej jest napis, fragment przestrzeni napisów, który jest jej przyporządkowany za pomocą roli maNapis.
+Każdy osobnik tej klasy może być własnością tylko jednego obiektu. Na przykład jeśli dwa produkty mają nazwę „pierścionek z brylantem”, to tutaj także powinny istnieć dwa osobniki. Oba powinny mieć przypisany ten sam napis w przestrzeni napisów.
+W środowisku o zasięgu globalnym (np. Internecie) napisy tłumaczymy na inne języki. Dlatego do połączenia danych z innymi systemami potrzebna jest nam wiedza o tym, w jaki języku wyrażona jest informacja reprezentowana przez dany napis. Wiedza ta jest tutaj zapamiętywana poprzez przyporządkowanie własności tekstowej do jednej z klas dziedziczących od klasy WlasnoscTekstowa: np. WlasnoscTekstowaPoAngielsku, WlasnoscTekstowaPoPolsku. Jeśli np. nazwa danego towaru jest wyrażona po polsku, to własność ta musi być wystąpieniem klasy Nazwa and WlasnoscTekstowaPoPolsku.
+</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#WłasnośćWartości</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Klasa WłasnośćBoolowska specjalizuję klasę Quality w celu ujęcia tych własności obiektów, które wiążą się z wartością. 
+
+Każdy osobnik tej klasy może być własnością tylko jednego obiektu. Na przykład jeśli dwa osobniki mają wartość &quot;100&quot; , to tutaj także powinny istnieć dwa osobniki. Oba powinny mieć przypisany ten sam fragment przestrzeni wartości.
+</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#ZakupFilmu</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Klasa opisuje zdarzenie zakupu filmu(kupił) od danego dystrybutora( dystrybuował) za podaną cenę(maCenę) przez pracownika(nadzorował) reprezentującego kino.
+
+Atrybut NrZakupu jest atrybutem kluczowym dla tej klasy. Definiujemy to w ten sposób, że wstawiamy ten atrybut  do sekcji Target for Key (zakładka Classes)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#dystrybuował</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Łączy zdarzenie będące częścią procesu zakupu filmu z dystrybutorem, który w tym zdarzeniu uczestniczył.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#emitował</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Łączy zdarzenie będące częścią procesu projekcji filmu z filmem, który w tym zdarzeniu uczestniczył.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#etapWykonany</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Łączy obiekty reprezentujące procesy seansu ze zdarzeniami będącymi ich częściami składowymi.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#kupił</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Łączy zdarzenie będące częścią procesu zakupu filmu z filmem, który w tym zdarzeniu uczestniczył.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#nadzorował</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Łączy zdarzenie będące częścią procesu zakupu filmu z pracownikiem, który w tym zdarzeniu uczestniczył.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#obsłużył</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Łączy zdarzenie będące częścią procesu sprzedaży biletów z pracownikiem, który w tym zdarzeniu uczestniczył.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#posiada</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Łączy obiekty reprezentujące Kina z obiektami Sala będącymi ich częścią.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#sprzedał</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Łączy zdarzenie będące częścią procesu sprzedaży biletów z biletem, który w tym zdarzeniu uczestniczył.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#udostępnił</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Łączy zdarzenie będące częścią procesu seans z kinem, które w tym zdarzeniu uczestniczyło.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#zarządzał</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Łączy zdarzenie będące częścią procesu projekcji filmu z pracownikiem, który w tym zdarzeniu uczestniczył.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#zatrudnia</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Odpowiednik związku zatrudnia z ERD.</Literal>
     </AnnotationAssertion>
 </Ontology>
 

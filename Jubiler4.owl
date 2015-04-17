@@ -583,15 +583,15 @@ Jest to tylko jedna z własności tekstowych, które możemy tu umieścić, gdyb
         <rdfs:subClassOf rdf:resource="&przyklad_zlecenia;CzescProcesuZamowienia"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&przyklad_zlecenia;przyjal"/>
-                <owl:onClass rdf:resource="&przyklad_zlecenia;Pracownik"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onProperty rdf:resource="&przyklad_zlecenia;dataOplaty"/>
+                <owl:someValuesFrom rdf:resource="&xsd;dateTime"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&przyklad_zlecenia;dataOplaty"/>
-                <owl:someValuesFrom rdf:resource="&xsd;dateTime"/>
+                <owl:onProperty rdf:resource="&przyklad_zlecenia;przyjal"/>
+                <owl:onClass rdf:resource="&przyklad_zlecenia;Pracownik"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="pl">Zdarzenie polegające na uiszczeniu zapłaty przez klienta. Zapłatę przyjmuje jeden z pracowników. Pracownik i data są zdarzeniu przypisane za pomocą odpowiednio roli przekazal i dataOplaty. Proszę zwrócić uwagę na aksjomaty zdefiniowane w sekcji SubClass Of.</rdfs:comment>
@@ -605,15 +605,15 @@ Jest to tylko jedna z własności tekstowych, które możemy tu umieścić, gdyb
         <rdfs:subClassOf rdf:resource="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#PhysicalObject"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&przyklad_zlecenia;maImie"/>
-                <owl:someValuesFrom rdf:resource="&przyklad_zlecenia;Imie"/>
+                <owl:onProperty rdf:resource="&przyklad_zlecenia;maNazwisko"/>
+                <owl:onClass rdf:resource="&przyklad_zlecenia;Nazwisko"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&przyklad_zlecenia;maNazwisko"/>
-                <owl:onClass rdf:resource="&przyklad_zlecenia;Nazwisko"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onProperty rdf:resource="&przyklad_zlecenia;maImie"/>
+                <owl:someValuesFrom rdf:resource="&przyklad_zlecenia;Imie"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="pl">Klasę Osoba kwalifikujemy jako PhysicalObject. Nie interesuje nas &quot;życie wewnętrzne&quot; ludzi, których nasza baza obejmuje, lecz ich cechy fizyczne (w szczególności ich fizyczny udział w procesie zamówienia).
@@ -669,20 +669,6 @@ Atrybut Zatrudniony jest zrealizowany jako przynależność do klasy dziedziczą
         <rdfs:subClassOf rdf:resource="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence#PhysicalObject"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&przyklad_zlecenia;maNazwe"/>
-                <owl:onClass>
-                    <owl:Class>
-                        <owl:intersectionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="&przyklad_zlecenia;Nazwa"/>
-                            <rdf:Description rdf:about="&przyklad_zlecenia;WlasnoscTekstowaPoPolsku"/>
-                        </owl:intersectionOf>
-                    </owl:Class>
-                </owl:onClass>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="&przyklad_zlecenia;wartosc"/>
                 <owl:allValuesFrom>
                     <rdfs:Datatype>
@@ -694,6 +680,20 @@ Atrybut Zatrudniony jest zrealizowany jako przynależność do klasy dziedziczą
                         </owl:withRestrictions>
                     </rdfs:Datatype>
                 </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&przyklad_zlecenia;maNazwe"/>
+                <owl:onClass>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&przyklad_zlecenia;Nazwa"/>
+                            <rdf:Description rdf:about="&przyklad_zlecenia;WlasnoscTekstowaPoPolsku"/>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:onClass>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="pl">Produkt jest także obiektem fizycznym. Arbitralnie pomijamy tutaj fakt, że powstanie produktu wiąże się z procesem wytwórczym.
@@ -745,15 +745,15 @@ Warty uwagi jest także sposób realizacji zbioru encji z ERD o nazwie RodzajePr
         <rdfs:subClassOf rdf:resource="&przyklad_zlecenia;CzescProcesuZamowienia"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&przyklad_zlecenia;zrealizowal"/>
-                <owl:onClass rdf:resource="&przyklad_zlecenia;Pracownik"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onProperty rdf:resource="&przyklad_zlecenia;dataRealizacji"/>
+                <owl:someValuesFrom rdf:resource="&xsd;dateTime"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&przyklad_zlecenia;dataRealizacji"/>
-                <owl:someValuesFrom rdf:resource="&xsd;dateTime"/>
+                <owl:onProperty rdf:resource="&przyklad_zlecenia;zrealizowal"/>
+                <owl:onClass rdf:resource="&przyklad_zlecenia;Pracownik"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="pl">Zdarzenie polegające na wytworzeniu produktu przez jednego z pracowników. Pracownik i data są zdarzeniu przypisane za pomocą odpowiednio roli przekazal i dataRealizacji. Proszę zwrócić uwagę na aksjomaty zdefiniowane w sekcji SubClass Of.
@@ -832,23 +832,16 @@ W środowisku o zasięgu globalnym (np. Internecie) napisy tłumaczymy na inne j
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&przyklad_zlecenia;zlozyl"/>
-                <owl:onClass rdf:resource="&przyklad_zlecenia;Klient"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&przyklad_zlecenia;etapWykonany"/>
-                <owl:onClass rdf:resource="&przyklad_zlecenia;OplacenieZamowienia"/>
-                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="&przyklad_zlecenia;etapWykonany"/>
                 <owl:onClass rdf:resource="&przyklad_zlecenia;RealizacjaZamowienia"/>
                 <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&przyklad_zlecenia;zlozyl"/>
+                <owl:onClass rdf:resource="&przyklad_zlecenia;Klient"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -864,6 +857,13 @@ W środowisku o zasięgu globalnym (np. Internecie) napisy tłumaczymy na inne j
                         </owl:withRestrictions>
                     </rdfs:Datatype>
                 </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&przyklad_zlecenia;etapWykonany"/>
+                <owl:onClass rdf:resource="&przyklad_zlecenia;OplacenieZamowienia"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -934,15 +934,15 @@ W sekcji Target for Key (zakładka Classes) jest przypisany klucz, czyli atrybut
         <rdfs:subClassOf rdf:resource="&przyklad_zlecenia;CzescProcesuZamowienia"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&przyklad_zlecenia;przyjal"/>
-                <owl:onClass rdf:resource="&przyklad_zlecenia;Pracownik"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onProperty rdf:resource="&przyklad_zlecenia;dataZlozenia"/>
+                <owl:someValuesFrom rdf:resource="&xsd;dateTime"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&przyklad_zlecenia;dataZlozenia"/>
-                <owl:someValuesFrom rdf:resource="&xsd;dateTime"/>
+                <owl:onProperty rdf:resource="&przyklad_zlecenia;przyjal"/>
+                <owl:onClass rdf:resource="&przyklad_zlecenia;Pracownik"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="pl">Zdarzenie inicjujące proces zamówienia. Polega na złożeniu zamówienia przez klienta i przyjęciu go przez jednego z pracowników. Pracownik i data są zdarzeniu przypisane za pomocą odpowiednio roli przekazal i dataZlozenia. Proszę zwrócić uwagę na aksjomaty zdefiniowane w sekcji SubClass Of.</rdfs:comment>

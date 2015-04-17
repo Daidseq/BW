@@ -2,8 +2,8 @@
 <catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
     <uri id="User Entered Import Resolution" name="http://km.pg.gda.pl/kmg/ontologies/2015/3/sweet_essence" uri="SweetEssence.owl"/>
     <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
-        <uri id="Automatically generated entry, Timestamp=1429183034628" name="http://kio.eti.pg.gda.pl/kmg/ontologies/2015/3/przyklad_jubiler" uri="Jubiler4.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1429183034628" name="http://www.semanticweb.org/daids/ontologies/2015/3/untitled-ontology-3" uri="kino.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1429183034628" name="http://www.semanticweb.org/ontologies/2015/2/untitled-ontology-1496" uri="SweetEssence.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1429272555838" name="http://kio.eti.pg.gda.pl/kmg/ontologies/2015/3/przyklad_jubiler" uri="Jubiler4.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1429272555838" name="http://www.semanticweb.org/daids/ontologies/2015/3/untitled-ontology-3" uri="kino.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1429272555838" name="http://www.semanticweb.org/ontologies/2015/2/untitled-ontology-1496" uri="SweetEssence.owl"/>
     </group>
 </catalog>
